@@ -1,0 +1,50 @@
+import React from 'react';
+import { cn } from '@/lib/utils';
+
+export interface SectionHeadingProps {
+  eyebrow?: string;
+  heading: string;
+  subtext?: string;
+  align?: 'left' | 'center' | 'right';
+  className?: string;
+  headingTag?: 'h1' | 'h2' | 'h3';
+  accentText?: string;
+}
+
+/**
+ * Standard Section Heading component with eyebrow, title and subtext.
+ */
+export const SectionHeading: React.FC<SectionHeadingProps> = ({
+  eyebrow,
+  heading,
+  subtext,
+  align = 'left',
+  className,
+  headingTag: HeadingTag = 'h2',
+  accentText,
+}) => {
+  const alignClasses = {
+    left: 'text-left items-start',
+    center: 'text-center items-center mx-auto',
+    right: 'text-right items-end ml-auto',
+  };
+
+  return (
+    <div className={cn('flex flex-col mb-10 md:mb-14', alignClasses[align], className)}>
+      {eyebrow && (
+        <span className="eyebrow mb-2 font-bold tracking-widest block text-accent">
+          {eyebrow}
+        </span>
+      )}
+      <HeadingTag className="heading-section tracking-tight text-primary">
+        {heading}
+        {accentText && <span className="text-accent ml-2">{accentText}</span>}
+      </HeadingTag>
+      {subtext && (
+        <p className="mt-3 text-text-muted text-base md:text-lg max-w-2xl leading-relaxed">
+          {subtext}
+        </p>
+      )}
+    </div>
+  );
+};

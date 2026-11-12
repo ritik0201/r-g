@@ -1,16 +1,15 @@
 import React from 'react';
 import { Hero } from '@/components/sections/Hero';
+import { About } from '@/components/sections/About';
+import { Proprietor } from '@/components/sections/Proprietor';
 import { Pillars } from '@/components/sections/Pillars';
-import { Expertise } from '@/components/sections/Expertise';
-import { IntegratedApproach } from '@/components/sections/IntegratedApproach';
-import { Credentials } from '@/components/sections/Credentials';
-import { CaseStudies } from '@/components/sections/CaseStudies';
 import { Partners } from '@/components/sections/Partners';
-import { ContactCTA } from '@/components/sections/ContactCTA';
+import { ContactForm } from '@/components/sections/ContactForm';
 
 /**
  * Home Page Component:
- * Composes all homepage sections in the exact approved Google Stitch sequence.
+ * Composes sections corresponding exactly to https://rngconsultancy.in/
+ * while preserving the modern styling, theme, animations, and typography.
  */
 export const Home: React.FC = () => {
   return (
@@ -18,26 +17,20 @@ export const Home: React.FC = () => {
       {/* 1. Hero Section */}
       <Hero />
 
-      {/* 2. Four Core Pillars */}
+      {/* 2. About R&G Section */}
+      <About />
+
+      {/* 3. Meet the Proprietor (Founder) Section */}
+      <Proprietor />
+
+      {/* 4. Our Service Pillars */}
       <Pillars />
 
-      {/* 3. Technology Capabilities */}
-      <Expertise />
-
-      {/* 4. Integrated Consulting Approach */}
-      <IntegratedApproach />
-
-      {/* 5. Company Experience & Credentials */}
-      <Credentials />
-
-      {/* 6. Selected Work / Case Studies */}
-      <CaseStudies />
-
-      {/* 7. Strategic Partner Network */}
+      {/* 5. Trusted Partnerships */}
       <Partners />
 
-      {/* 8. Contact CTA Band */}
-      <ContactCTA />
+      {/* 6. Let's Connect (Contact Form) */}
+      <ContactForm />
     </main>
   );
 };

@@ -5,6 +5,7 @@ export interface SectionHeadingProps {
   eyebrow?: string;
   heading: string;
   subtext?: string;
+  subtitle?: string;
   align?: 'left' | 'center' | 'right';
   className?: string;
   headingTag?: 'h1' | 'h2' | 'h3';
@@ -18,7 +19,8 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
   eyebrow,
   heading,
   subtext,
-  align = 'left',
+  subtitle,
+  align = 'center',
   className,
   headingTag: HeadingTag = 'h2',
   accentText,
@@ -28,6 +30,8 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
     center: 'text-center items-center mx-auto',
     right: 'text-right items-end ml-auto',
   };
+
+  const displayText = subtext || subtitle;
 
   return (
     <div className={cn('flex flex-col mb-10 md:mb-14', alignClasses[align], className)}>
@@ -40,9 +44,9 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
         {heading}
         {accentText && <span className="text-accent ml-2">{accentText}</span>}
       </HeadingTag>
-      {subtext && (
+      {displayText && (
         <p className="mt-3 text-text-muted text-base md:text-lg max-w-2xl leading-relaxed">
-          {subtext}
+          {displayText}
         </p>
       )}
     </div>

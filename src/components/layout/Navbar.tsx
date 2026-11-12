@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { User, Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { navigationLinks } from '@/data/navigation';
 import { siteConfig } from '@/data/site';
@@ -9,8 +9,7 @@ import { Button } from '@/components/common/Button';
 import { cn } from '@/lib/utils';
 
 /**
- * Top sticky navigation bar matching Google Stitch design specifications.
- * Includes scroll detection, active indicator, account avatar, and animated mobile drawer.
+ * Top sticky navigation bar matching original brand identity and Google Stitch design specifications.
  */
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,19 +44,24 @@ export const Navbar: React.FC = () => {
           {/* Brand Logo & Name */}
           <a
             href="#home"
-            className="flex items-center gap-3 shrink-0 focus-visible:outline-accent"
+            className="flex items-center gap-3 shrink-0 focus-visible:outline-accent group"
             aria-label={`${siteConfig.name} Home`}
           >
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-accent font-heading font-black text-xl shadow-sm border border-navy-800">
-              R&amp;G
+            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-accent font-heading font-black text-xl shadow-sm border border-navy-800 group-hover:scale-105 transition-transform">
+              {siteConfig.shortName}
             </div>
-            <span className="font-heading font-bold text-lg md:text-xl text-primary tracking-tight hidden sm:inline-block">
-              {siteConfig.name}
-            </span>
+            <div className="flex flex-col">
+              <span className="font-heading font-bold text-base md:text-lg text-primary tracking-tight leading-tight">
+                {siteConfig.name}
+              </span>
+              <span className="text-[11px] font-medium text-text-muted tracking-tight">
+                {siteConfig.subTagline}
+              </span>
+            </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-7" aria-label="Main Navigation">
+          <nav className="hidden md:flex items-center gap-7" aria-label="Main Navigation">
             {navigationLinks.map((link) => {
               const targetId = link.href.startsWith('#') ? link.href.slice(1) : link.id;
               const isActive = activeSection === targetId;
@@ -93,27 +97,18 @@ export const Navbar: React.FC = () => {
               href="#contact"
               variant="primary"
               size="sm"
-              className="hidden md:inline-flex shadow-sm"
+              className="hidden sm:inline-flex shadow-sm"
               icon={<ArrowRight className="w-4 h-4 ml-1" />}
               iconPosition="right"
             >
               Get in Touch
             </Button>
 
-            {/* Account / User Avatar */}
-            <button
-              type="button"
-              className="w-9 h-9 rounded-full bg-primary hover:bg-navy-800 text-white flex items-center justify-center transition-all duration-200 shadow-sm focus-visible:outline-accent"
-              aria-label="User Account"
-            >
-              <User className="w-4 h-4 text-white" />
-            </button>
-
             {/* Mobile Hamburger Button */}
             <button
               type="button"
               onClick={toggle}
-              className="xl:hidden p-2 rounded-lg text-primary hover:bg-navy-50 border border-border focus-visible:outline-accent"
+              className="md:hidden p-2 rounded-lg text-primary hover:bg-navy-50 border border-border focus-visible:outline-accent"
               aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={isOpen}
             >
@@ -133,7 +128,7 @@ export const Navbar: React.FC = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={close}
-              className="fixed inset-0 z-40 bg-navy-950/40 backdrop-blur-sm xl:hidden"
+              className="fixed inset-0 z-40 bg-navy-950/40 backdrop-blur-sm md:hidden"
               aria-hidden="true"
             />
 
@@ -143,18 +138,23 @@ export const Navbar: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-white shadow-float border-l border-border p-6 flex flex-col justify-between overflow-y-auto xl:hidden"
+              className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-white shadow-float border-l border-border p-6 flex flex-col justify-between overflow-y-auto md:hidden"
             >
               <div>
                 {/* Header in Drawer */}
                 <div className="flex items-center justify-between pb-6 border-b border-border">
                   <div className="flex items-center gap-3">
                     <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-accent font-heading font-black text-lg">
-                      R&amp;G
+                      {siteConfig.shortName}
                     </div>
-                    <span className="font-heading font-bold text-base text-primary">
-                      {siteConfig.name}
-                    </span>
+                    <div>
+                      <span className="font-heading font-bold text-sm text-primary block leading-tight">
+                        {siteConfig.name}
+                      </span>
+                      <span className="text-[10px] text-text-muted">
+                        {siteConfig.subTagline}
+                      </span>
+                    </div>
                   </div>
                   <button
                     type="button"
@@ -206,7 +206,7 @@ export const Navbar: React.FC = () => {
                 >
                   Get in Touch
                 </Button>
-                <div className="text-xs text-text-muted text-center">
+                <div className="text-xs text-text-muted text-center space-y-1">
                   <p>{siteConfig.phone}</p>
                   <p>{siteConfig.email}</p>
                 </div>

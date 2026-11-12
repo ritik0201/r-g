@@ -16,41 +16,11 @@ export interface TrustSignal {
 }
 
 /**
- * Floating architecture showcase stats for hero
- */
-export interface HeroPreviewData {
-  commerce: {
-    title: string;
-    status: string;
-    metricLabel: string;
-    metricValue: string;
-    chartLevels: number[];
-  };
-  aiEngine: {
-    title: string;
-    sla: string;
-    description: string;
-    pipeline: Array<{
-      step: string;
-      latency: string;
-    }>;
-  };
-  growthStack: {
-    title: string;
-    subtitle: string;
-  };
-}
-
-/**
  * Hero section data definition
  */
 export interface HeroData {
   eyebrow: string;
-  headline: {
-    line1: string;
-    line2: string;
-    line3: string;
-  };
+  headline: string;
   description: string;
   primaryCta: {
     label: string;
@@ -61,7 +31,39 @@ export interface HeroData {
     href: string;
   };
   trustSignals: TrustSignal[];
-  preview: HeroPreviewData;
+  coreFocus: Array<{
+    title: string;
+    iconName: string;
+  }>;
+}
+
+/**
+ * About R&G section data
+ */
+export interface AboutData {
+  eyebrow: string;
+  heading: string;
+  subtitle: string;
+  paragraphs: string[];
+  values: Array<{
+    title: string;
+    description: string;
+    iconName: string;
+  }>;
+}
+
+/**
+ * Proprietor / Founder section data
+ */
+export interface ProprietorData {
+  eyebrow: string;
+  heading: string;
+  name: string;
+  title: string;
+  image: string;
+  imageAlt: string;
+  quote: string;
+  bio: string;
 }
 
 /**
@@ -72,8 +74,9 @@ export interface PillarItem {
   number: string;
   title: string;
   description: string;
-  tagline: string;
-  iconName: 'Code2' | 'BrainCircuit' | 'Palette' | 'TrendingUp';
+  tagline?: string;
+  iconName?: string;
+  iconUrl?: string;
 }
 
 /**
@@ -82,16 +85,7 @@ export interface PillarItem {
 export interface ExpertiseItem {
   id: string;
   label: string;
-  iconName:
-    | 'ShoppingBag'
-    | 'Cpu'
-    | 'Calculator'
-    | 'Layers'
-    | 'Bot'
-    | 'BarChart3'
-    | 'Palette'
-    | 'Megaphone'
-    | 'GraduationCap';
+  iconName: string;
 }
 
 /**
@@ -134,7 +128,8 @@ export interface PartnerItem {
   id: string;
   role: string;
   name: string;
-  description: string;
+  description?: string;
+  logoUrl: string;
 }
 
 /**
@@ -154,12 +149,16 @@ export interface ContactCTAData {
 export interface SiteConfig {
   name: string;
   legalName: string;
+  shortName: string;
   tagline: string;
+  subTagline: string;
   scaleBadge: string;
   phone: string;
   email: string;
   address: string;
   copyright: string;
+  implementationPartner: string;
+  staffingPartner: string;
   legalLinks: Array<{
     label: string;
     href: string;

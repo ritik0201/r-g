@@ -51,7 +51,8 @@ export const Expertise: React.FC = () => {
           className="flex flex-wrap gap-3.5 max-w-4xl"
         >
           {expertiseData.map((item) => {
-            const IconComponent = iconMap[item.iconName];
+            const IconComponent =
+              iconMap[item.iconName as keyof typeof iconMap] || iconMap.Cpu;
 
             return (
               <motion.div

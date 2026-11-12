@@ -1,54 +1,44 @@
 import type { HeroData } from '@/types';
 
 export const heroData: HeroData = {
-  eyebrow: 'PRODUCT ENGINEERING & DIGITAL OPERATIONS',
-  headline: {
-    line1: 'We build it.',
-    line2: 'We run it.',
-    line3: 'We grow it.',
-  },
+  eyebrow: 'STRATEGIC GUIDANCE & HANDS-ON IMPLEMENTATION',
+  headline: 'Your trusted partner in IT & HR Consultancy.',
   description:
-    'R&G designs and builds consumer platforms, custom applications and AI-powered tools, and then supports them with design, content and growth work. One accountable team instead of a chain of vendors.',
+    'Founded on 1 November 2023, R&G Consultancy Services aligns technology and talent with business growth. We provide end-to-end IT consultancy, HR consultancy, software projects, and IT training—combining strategic guidance with hands-on implementation.',
   primaryCta: {
     label: 'Get in Touch',
     href: '#contact',
   },
   secondaryCta: {
-    label: 'View Our Work',
-    href: '#work',
+    label: 'Explore Services',
+    href: '#services',
   },
   trustSignals: [
     {
-      label: '100% Accountable',
+      label: 'Outcome-Driven Consulting',
       iconName: 'ShieldCheck',
     },
     {
-      label: 'SLA-Backed Delivery',
+      label: 'Partner-Enabled Execution',
       iconName: 'Zap',
     },
   ],
-  preview: {
-    commerce: {
-      title: 'Shopify + Custom Engine',
-      status: 'ACTIVE',
-      metricLabel: 'Throughput Volume',
-      metricValue: '₹4.82M / day',
-      chartLevels: [35, 60, 100, 80],
+  coreFocus: [
+    {
+      title: 'Technology Strategy',
+      iconName: 'Sitemap',
     },
-    aiEngine: {
-      title: 'AI Middleware Engine',
-      sla: '99.98% SLA',
-      description:
-        'Live model routing, payload token optimization, dynamic pricing arbitration.',
-      pipeline: [
-        { step: 'API Ingest', latency: '12ms' },
-        { step: 'Logic Sync', latency: '28ms' },
-        { step: 'Dispatch', latency: '8ms' },
-      ],
+    {
+      title: 'Executive HR Staffing',
+      iconName: 'UserCheck',
     },
-    growthStack: {
-      title: 'Continuous Growth Stack',
-      subtitle: 'Engineering • Ops • Placement',
+    {
+      title: 'Magento & Integrations',
+      iconName: 'Code2',
     },
-  },
+    {
+      title: 'Corporate IT Training',
+      iconName: 'GraduationCap',
+    },
+  ],
 };

@@ -1,45 +1,50 @@
 import type { PillarItem } from '@/types';
 
 export const pillarsHeading = {
-  eyebrow: 'CORE PILLARS',
-  heading: 'Four pillars of digital execution',
+  eyebrow: 'OUR SERVICE PILLARS',
+  heading: 'Our Service Pillars',
+  subtitle: 'From strategy to staffing—delivered with accountability.',
 };
 
 export const pillarsData: PillarItem[] = [
   {
-    id: 'engineering',
+    id: 'it-consultancy',
     number: '01',
-    title: 'Engineering',
+    title: 'IT Consultancy',
     description:
-      'Shopify, Magento, full stack web and internal platforms built from scratch with bulletproof architecture.',
-    tagline: 'SCALE READY • ZERO BLOAT',
+      'Assess, define, and execute phased roadmaps for technology strategy, product evaluation, and secure integrations.',
+    tagline: 'STRATEGY • ARCHITECTURE • INTEGRATIONS',
+    iconUrl: '/images/icon-it-consultancy.png',
     iconName: 'Code2',
   },
   {
-    id: 'intelligence',
+    id: 'hr-staffing',
     number: '02',
-    title: 'Intelligence',
+    title: 'HR & Staffing',
     description:
-      'AI automation, real-time data pipelines, operational analytics dashboards, and custom machine learning workflows.',
-    tagline: 'AUTOMATED • PREDICTIVE',
+      'End-to-end talent acquisition and workforce solutions through our franchise with Talent Corner HR Services.',
+    tagline: 'EXECUTIVE SEARCH • TALENT SOURCING',
+    iconUrl: '/images/icon-hr-staffing.png',
     iconName: 'BrainCircuit',
   },
   {
-    id: 'experience',
+    id: 'software-projects',
     number: '03',
-    title: 'Experience',
+    title: 'Software Projects',
     description:
-      'UX research, UI engineering, and design systems polished to rigorous, enterprise-grade production standards.',
-    tagline: 'ACCESSIBLE • INTUITIVE',
+      'Full-cycle development, specializing in Magento implementations, performance tuning, and API integrations.',
+    tagline: 'FULL-CYCLE DEV • MAGENTO • APIS',
+    iconUrl: '/images/icon-software-projects.png',
     iconName: 'Palette',
   },
   {
-    id: 'growth',
+    id: 'it-training',
     number: '04',
-    title: 'Growth',
+    title: 'IT Training',
     description:
-      'High-intent content, execution-focused marketing campaigns, and ongoing mentorship in every digital discipline.',
-    tagline: 'MEASURABLE • COMPOUNDED',
+      'Customized corporate training in modern technologies (Java, Python, Fullstack) in partnership with Mikado Solutions.',
+    tagline: 'JAVA • PYTHON • FULLSTACK ACADEMY',
+    iconUrl: '/images/icon-it-training.png',
     iconName: 'TrendingUp',
   },
 ];

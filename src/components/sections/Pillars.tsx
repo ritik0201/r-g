@@ -1,23 +1,47 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, BrainCircuit, Palette, TrendingUp } from 'lucide-react';
+import { Code2, Users, Laptop, GraduationCap } from 'lucide-react';
 import { pillarsData, pillarsHeading } from '@/data/pillars';
 import { Container } from '@/components/common/Container';
 import { SectionHeading } from '@/components/common/SectionHeading';
 import { Card } from '@/components/common/Card';
 import { staggerContainerVariant, fadeUpVariant } from '@/lib/motion';
 
-// Icon map for dynamic icon lookup
-const iconMap = {
-  Code2,
-  BrainCircuit,
-  Palette,
-  TrendingUp,
+const iconFallbackMap: Record<string, React.ElementType> = {
+  'it-consultancy': Code2,
+  'hr-staffing': Users,
+  'software-projects': Laptop,
+  'it-training': GraduationCap,
 };
 
 /**
- * Four Core Pillars Section:
- * Displays four architectural execution pillars on lavender background with lift effects.
+ * Helper to render pillar descriptions with exact semantic bolding
+ */
+const renderPillarDescription = (id: string, description: string) => {
+  if (id === 'hr-staffing') {
+    return (
+      <>
+        End-to-end talent acquisition and workforce solutions through our franchise with{' '}
+        <strong className="font-semibold text-primary">Talent Corner HR Services</strong>.
+      </>
+    );
+  }
+  if (id === 'it-training') {
+    return (
+      <>
+        Customized corporate training in modern technologies (Java, Python, Fullstack) in
+        partnership with{' '}
+        <strong className="font-semibold text-primary">Mikado Solutions</strong>.
+      </>
+    );
+  }
+  return description;
+};
+
+/**
+ * Our Service Pillars Section:
+ * Displays the 4 service pillars with original copy, semantic formatting,
+ * and flaticon visual badges.
  */
 export const Pillars: React.FC = () => {
   return (
@@ -26,6 +50,7 @@ export const Pillars: React.FC = () => {
         <SectionHeading
           eyebrow={pillarsHeading.eyebrow}
           heading={pillarsHeading.heading}
+          subtitle={pillarsHeading.subtitle}
         />
 
         {/* 4 Cards Grid */}
@@ -37,13 +62,13 @@ export const Pillars: React.FC = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {pillarsData.map((pillar) => {
-            const IconComponent = iconMap[pillar.iconName];
+            const FallbackIcon = iconFallbackMap[pillar.id] || Code2;
 
             return (
               <motion.div key={pillar.id} variants={fadeUpVariant} className="h-full">
                 <Card
                   variant="hover"
-                  className="p-7 sm:p-8 flex flex-col justify-between h-full bg-white group hover:border-accent hover:shadow-card-hover"
+                  className="p-7 sm:p-8 flex flex-col justify-between h-full bg-white group hover:border-accent hover:shadow-card-hover transition-all"
                 >
                   <div>
                     {/* Top row: Number & Icon */}
@@ -51,8 +76,17 @@ export const Pillars: React.FC = () => {
                       <span className="font-heading font-black text-2xl text-accent">
                         {pillar.number}
                       </span>
-                      <div className="w-12 h-12 rounded-xl bg-navy-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
-                        <IconComponent className="w-6 h-6 transition-transform group-hover:scale-110" />
+                      <div className="w-14 h-14 rounded-xl bg-navy-50 flex items-center justify-center p-2.5 border border-border group-hover:border-accent transition-all duration-300 shadow-xs">
+                        {pillar.iconUrl ? (
+                          <img
+                            src={pillar.iconUrl}
+                            alt={`${pillar.title} icon`}
+                            className="w-full h-full object-contain transition-transform group-hover:scale-110"
+                            loading="lazy"
+                          />
+                        ) : (
+                          <FallbackIcon className="w-6 h-6 text-primary group-hover:text-accent transition-colors" />
+                        )}
                       </div>
                     </div>
 
@@ -63,16 +97,18 @@ export const Pillars: React.FC = () => {
 
                     {/* Description */}
                     <p className="text-text-muted text-sm leading-relaxed">
-                      {pillar.description}
+                      {renderPillarDescription(pillar.id, pillar.description)}
                     </p>
                   </div>
 
                   {/* Bottom Tagline */}
-                  <div className="pt-6 mt-6 border-t border-border">
-                    <span className="text-[11px] font-bold text-text-muted uppercase tracking-wider block font-mono">
-                      {pillar.tagline}
-                    </span>
-                  </div>
+                  {pillar.tagline && (
+                    <div className="pt-6 mt-6 border-t border-border">
+                      <span className="text-[11px] font-bold text-text-muted uppercase tracking-wider block font-mono">
+                        {pillar.tagline}
+                      </span>
+                    </div>
+                  )}
                 </Card>
               </motion.div>
             );

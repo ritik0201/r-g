@@ -1,16 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ShieldCheck, Zap, CheckCircle2, Cpu, Activity } from 'lucide-react';
+import {
+  ArrowRight,
+  ShieldCheck,
+  Zap,
+  Layers,
+  Users,
+  Code2,
+  GraduationCap,
+  Sparkles,
+} from 'lucide-react';
 import { heroData } from '@/data/hero';
 import { Button } from '@/components/common/Button';
-import { Badge } from '@/components/common/Badge';
 import { Container } from '@/components/common/Container';
 import { fadeUpVariant, scaleInVariant } from '@/lib/motion';
 
+const coreFocusIcons = [Layers, Users, Code2, GraduationCap];
+
 /**
  * Hero Section:
- * Displays three-line architectural headline with gold accent,
- * dual CTAs, confidence metrics, and a floating operational dashboard preview card.
+ * Features perfectly formatted typography, balanced line breaks,
+ * highlighted strategic keywords, and the interactive "Our Core Focus" panel.
  */
 export const Hero: React.FC = () => {
   return (
@@ -36,23 +46,31 @@ export const Hero: React.FC = () => {
             {/* Eyebrow Pill */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-navy-50 border border-navy-100 mb-6 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              <span className="eyebrow text-[11px] text-primary font-bold">
+              <span className="eyebrow text-[11px] text-primary font-bold tracking-wider">
                 {heroData.eyebrow}
               </span>
             </div>
 
             {/* Headline */}
-            <h1 className="heading-display text-primary tracking-tight leading-[1.08] mb-6">
-              {heroData.headline.line1} <br />
-              {heroData.headline.line2} <br />
-              <span className="text-accent underline decoration-gold-200 decoration-wavy decoration-2 underline-offset-8">
-                {heroData.headline.line3}
+            <h1 className="heading-display text-primary tracking-tight leading-[1.12] mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-balance">
+              Your trusted partner in{' '}
+              <span className="text-accent underline decoration-gold-300 decoration-wavy decoration-2 underline-offset-8">
+                IT &amp; HR Consultancy.
               </span>
             </h1>
 
-            {/* Description */}
-            <p className="text-text-muted text-lg md:text-xl leading-relaxed max-w-2xl mb-8">
-              {heroData.description}
+            {/* Description with precise semantic bolding */}
+            <p className="text-text-muted text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mb-8">
+              Founded on 1 November 2023,{' '}
+              <strong className="font-semibold text-primary">
+                R&amp;G Consultancy Services
+              </strong>{' '}
+              aligns technology and talent with business growth. We provide end-to-end{' '}
+              <strong className="font-semibold text-primary">IT consultancy</strong>,{' '}
+              <strong className="font-semibold text-primary">HR consultancy</strong>,{' '}
+              <strong className="font-semibold text-primary">software projects</strong>,
+              and <strong className="font-semibold text-primary">IT training</strong> —
+              combining strategic guidance with hands-on implementation.
             </p>
 
             {/* Call to actions */}
@@ -71,7 +89,7 @@ export const Hero: React.FC = () => {
                 href={heroData.secondaryCta.href}
                 variant="ghost"
                 size="lg"
-                className="bg-white/80"
+                className="bg-white/80 border border-border hover:border-accent hover:text-accent font-medium"
               >
                 {heroData.secondaryCta.label}
               </Button>
@@ -97,12 +115,12 @@ export const Hero: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Right Column: Floating Operational Hub Graphic (5 columns) */}
+          {/* Right Column: Floating "Our Core Focus" Card (5 columns) */}
           <motion.div
             variants={scaleInVariant}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-5 relative"
+            className="lg:col-span-5 relative w-full"
           >
             {/* Ambient decorative back-glow */}
             <div
@@ -111,103 +129,61 @@ export const Hero: React.FC = () => {
             />
 
             {/* Container Box */}
-            <div className="relative rounded-2xl bg-white/90 backdrop-blur-md p-6 sm:p-7 shadow-float border border-border space-y-5">
-              {/* Card 1: Commerce Window Card */}
-              <div className="bg-navy-50/50 rounded-xl p-5 border border-border shadow-sm">
-                <div className="flex items-center justify-between pb-3 mb-3 border-b border-border">
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse" />
-                    <span className="text-xs font-bold text-primary">
-                      {heroData.preview.commerce.title}
-                    </span>
-                  </div>
-                  <Badge variant="gold" size="sm">
-                    {heroData.preview.commerce.status}
-                  </Badge>
-                </div>
-
-                <div className="flex items-end justify-between">
-                  <div>
-                    <span className="text-xs text-text-muted block font-medium">
-                      {heroData.preview.commerce.metricLabel}
-                    </span>
-                    <span className="font-heading font-black text-2xl md:text-3xl text-primary tracking-tight mt-0.5 block">
-                      {heroData.preview.commerce.metricValue}
-                    </span>
-                  </div>
-
-                  {/* Mini animated bar chart */}
-                  <div
-                    className="flex items-end gap-1.5 h-10 pb-1"
-                    aria-label="Daily throughput volume chart"
-                  >
-                    {heroData.preview.commerce.chartLevels.map((lvl, idx) => (
-                      <span
-                        key={idx}
-                        style={{ height: `${lvl}%` }}
-                        className={`w-2.5 rounded-t transition-all ${
-                          idx === 2
-                            ? 'bg-accent shadow-sm'
-                            : idx === 1
-                              ? 'bg-primary'
-                              : 'bg-navy-300'
-                        }`}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Card 2: AI Middleware Engine Node */}
-              <div className="bg-white rounded-xl p-5 border border-border shadow-sm">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2 text-primary font-bold text-sm">
-                    <Cpu className="w-4 h-4 text-accent" />
-                    <span>{heroData.preview.aiEngine.title}</span>
-                  </div>
-                  <span className="text-xs font-bold text-accent px-2 py-0.5 rounded bg-gold-50 border border-gold-200">
-                    {heroData.preview.aiEngine.sla}
-                  </span>
-                </div>
-
-                <p className="text-xs text-text-muted leading-relaxed mb-4">
-                  {heroData.preview.aiEngine.description}
-                </p>
-
-                {/* Micro Pipeline Step Badges */}
-                <div className="grid grid-cols-3 gap-2 text-center">
-                  {heroData.preview.aiEngine.pipeline.map((step) => (
-                    <div
-                      key={step.step}
-                      className="bg-navy-50/80 p-2 rounded-lg border border-border text-center"
-                    >
-                      <span className="text-[11px] font-bold text-primary block truncate">
-                        {step.step}
-                      </span>
-                      <span className="text-[10px] text-text-muted font-mono mt-0.5 block">
-                        {step.latency}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Card 3: Continuous Growth Stack (Navy card) */}
-              <div className="bg-primary text-white rounded-xl p-4 sm:p-5 shadow-md flex items-center justify-between border border-navy-800">
+            <div className="relative rounded-2xl bg-white/95 backdrop-blur-md p-6 sm:p-8 shadow-float border border-border">
+              {/* Card Header */}
+              <div className="flex items-center justify-between pb-5 mb-5 border-b border-border">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-accent/20 border border-accent/40 flex items-center justify-center text-accent shrink-0">
-                    <Activity className="w-5 h-5 text-accent" />
+                  <div className="w-9 h-9 rounded-lg bg-navy-50 flex items-center justify-center text-accent">
+                    <Sparkles className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="font-heading font-bold text-sm sm:text-base text-white block">
-                      {heroData.preview.growthStack.title}
-                    </span>
-                    <span className="text-xs text-navy-200 block mt-0.5">
-                      {heroData.preview.growthStack.subtitle}
+                    <h3 className="font-heading font-bold text-xl text-primary">
+                      Our Core Focus
+                    </h3>
+                    <span className="text-xs text-text-muted">
+                      Integrated Delivery Capabilities
                     </span>
                   </div>
                 </div>
-                <CheckCircle2 className="w-6 h-6 text-accent shrink-0 ml-2" />
+                <span className="text-[11px] font-bold text-accent px-2.5 py-1 rounded-full bg-gold-50 border border-gold-200/60 uppercase tracking-wider font-mono">
+                  SPECIALIZED
+                </span>
+              </div>
+
+              {/* Focus Items List */}
+              <div className="space-y-3.5">
+                {heroData.coreFocus.map((focus, idx) => {
+                  const Icon = coreFocusIcons[idx % coreFocusIcons.length];
+                  return (
+                    <motion.div
+                      key={focus.title}
+                      whileHover={{ x: 4 }}
+                      transition={{ duration: 0.2 }}
+                      className="group flex items-center justify-between p-4 rounded-xl bg-navy-50/50 hover:bg-white border border-border hover:border-accent hover:shadow-card transition-all"
+                    >
+                      <div className="flex items-center gap-3.5">
+                        <div className="w-10 h-10 rounded-lg bg-white group-hover:bg-primary group-hover:text-accent text-primary flex items-center justify-center border border-border shadow-xs transition-colors">
+                          <Icon className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <h4 className="font-heading font-semibold text-sm sm:text-base text-primary group-hover:text-accent transition-colors">
+                            {focus.title}
+                          </h4>
+                        </div>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-text-muted/60 group-hover:text-accent group-hover:translate-x-1 transition-all" />
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              {/* Bottom Card Summary */}
+              <div className="mt-6 pt-5 border-t border-border flex items-center justify-between text-xs text-text-muted">
+                <span className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  Active Client Engagements
+                </span>
+                <span className="font-semibold text-primary">Est. 2023</span>
               </div>
             </div>
           </motion.div>

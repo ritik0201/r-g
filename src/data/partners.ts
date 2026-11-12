@@ -1,36 +1,47 @@
 import type { PartnerItem, ContactCTAData } from '@/types';
 
 export const partnersHeading = {
-  eyebrow: 'ECOSYSTEM & PARTNERS',
-  heading: 'Strategic Alliance Network',
+  eyebrow: 'STRATEGIC ALLIANCES',
+  heading: 'Trusted Partnerships',
+  subtitle: 'Collaborations that accelerate value and reliability.',
 };
 
 export const partnersData: PartnerItem[] = [
   {
-    id: 'simplifyit',
+    id: 'simplified-it',
     role: 'Implementation Partner',
-    name: 'SimplifyIT',
-    description: 'Enterprise Cloud Infrastructure & Automation',
+    name: 'Simplified IT Solutions',
+    description: 'Enterprise Cloud Infrastructure, Architecture & Delivery',
+    logoUrl: '/images/simplified-it.png',
   },
   {
     id: 'talent-corner',
-    role: 'Talent Partner',
-    name: 'Talent Corner',
-    description: 'Executive Sourcing & Engineering Staffing',
+    role: 'Staffing Franchise Partner',
+    name: 'Talent Corner HR Services',
+    description: 'Comprehensive Talent Acquisition & Workforce Solutions',
+    logoUrl: '/images/talent-corner.png',
   },
   {
     id: 'mikado-solutions',
-    role: 'Training & Foundation Partner',
+    role: 'Training Partner',
     name: 'Mikado Solutions',
-    description: 'Full Stack Academy & Technical Upskilling',
+    description:
+      'Corporate Upskilling & Modern Engineering Academy (Java, Python, Fullstack)',
+    logoUrl: '/images/mikado-solutions.png',
+  },
+  {
+    id: 'your-enterprise',
+    role: 'Strategic Partner',
+    name: 'Your Enterprise',
+    description: 'Cross-Sector Strategic Collaborations & Business Synergy',
+    logoUrl: '/images/your-enterprise.jpg',
   },
 ];
 
 export const contactCTAData: ContactCTAData = {
-  eyebrow: "LET'S BUILD TOGETHER",
-  heading: 'Ready to build, run, or scale your platform?',
-  subtext:
-    'Partner with a single accountable engineering team instead of fragmented vendor chains.',
-  buttonText: 'Start a project',
+  eyebrow: "LET'S CONNECT",
+  heading: "Let's Connect",
+  subtext: 'We usually respond within one business day.',
+  buttonText: 'Get in Touch',
   buttonHref: '#contact',
 };

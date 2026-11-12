@@ -8,12 +8,15 @@ import { staggerContainerVariant, fadeUpVariant } from '@/lib/motion';
 
 /**
  * Trusted Partnerships Section:
- * Highlights key institutional partners: Simplified IT Solutions,
+ * Highlights institutional partners: Simplified IT Solutions,
  * Talent Corner HR Services, Mikado Solutions, and Your Enterprise.
  */
 export const Partners: React.FC = () => {
   return (
-    <section id="partnerships" className="py-20 lg:py-24 bg-white relative">
+    <section
+      id="partnerships"
+      className="py-20 lg:py-24 bg-slate-50/70 border-y border-slate-200/70 relative"
+    >
       <Container>
         {/* Section Header */}
         <SectionHeading
@@ -35,11 +38,11 @@ export const Partners: React.FC = () => {
               <motion.div key={partner.id} variants={fadeUpVariant} className="h-full">
                 <Card
                   variant="hover"
-                  className="p-7 text-center bg-navy-50/40 border border-border rounded-2xl flex flex-col items-center justify-between h-full group hover:bg-white hover:border-accent hover:shadow-card-hover transition-all"
+                  className="p-7 text-center bg-white border border-slate-200 rounded-2xl flex flex-col items-center justify-between h-full group hover:border-primary/50 hover:shadow-card-hover transition-all duration-300"
                 >
                   <div className="flex flex-col items-center w-full">
                     {/* Partner Logo Box */}
-                    <div className="w-full h-20 bg-white rounded-xl border border-border/80 shadow-xs flex items-center justify-center p-3 mb-5 group-hover:border-accent/40 transition-colors">
+                    <div className="w-full h-20 bg-slate-50/60 rounded-xl border border-slate-200/70 shadow-2xs flex items-center justify-center p-3 mb-5 group-hover:border-primary/30 transition-colors">
                       <img
                         src={partner.logoUrl}
                         alt={`${partner.name} logo`}
@@ -57,7 +60,7 @@ export const Partners: React.FC = () => {
                     </h3>
 
                     {partner.description && (
-                      <p className="text-text-muted text-xs leading-relaxed max-w-xs mt-1">
+                      <p className="text-slate-500 text-xs leading-relaxed max-w-xs mt-1">
                         {partner.description}
                       </p>
                     )}

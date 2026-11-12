@@ -10,8 +10,8 @@ import { fadeUpVariant, scaleInVariant } from '@/lib/motion';
 
 /**
  * Let's Connect (Contact Form) Section:
- * Faithfully matches the exact text, labels, and fields of the original form on https://rngconsultancy.in/,
- * formatted with refined typography and responsive design.
+ * Features a Deep Navy corporate identity panel paired with a clean White interactive form,
+ * delivering the requested White -> Navy -> Gold color hierarchy.
  */
 export const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -52,7 +52,7 @@ export const ContactForm: React.FC = () => {
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start max-w-6xl mx-auto">
-          {/* Left Column: Direct Contact Info (5 cols) */}
+          {/* Left Column: Authoritative Deep Navy Contact Card (5 cols) */}
           <motion.div
             variants={fadeUpVariant}
             initial="hidden"
@@ -60,12 +60,12 @@ export const ContactForm: React.FC = () => {
             viewport={{ once: true, amount: 0.2 }}
             className="lg:col-span-5 space-y-6"
           >
-            <div className="p-8 rounded-2xl bg-navy-50/60 border border-border space-y-6 shadow-xs">
+            <div className="p-8 sm:p-9 rounded-2xl bg-primary text-white shadow-lg space-y-6 relative overflow-hidden">
               <div>
-                <h3 className="font-heading font-bold text-xl text-primary mb-2">
+                <h3 className="font-heading font-bold text-2xl text-white mb-2">
                   R&amp;G Consultancy Services
                 </h3>
-                <p className="text-sm font-medium text-text-muted">
+                <p className="text-xs sm:text-sm font-medium text-slate-300">
                   {siteConfig.tagline}
                 </p>
               </div>
@@ -73,74 +73,82 @@ export const ContactForm: React.FC = () => {
               <div className="space-y-4 pt-2 text-sm">
                 <a
                   href={`tel:${siteConfig.phone.replace(/[^0-9+]/g, '')}`}
-                  className="flex items-center gap-3 text-text hover:text-accent transition-colors group"
+                  className="flex items-center gap-3.5 text-white/90 hover:text-gold-300 transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-white border border-border flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-accent transition-colors shadow-xs">
+                  <div className="w-10 h-10 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-primary transition-colors shadow-xs">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-xs text-text-muted block">Direct Phone</span>
-                    <span className="font-semibold text-primary">{siteConfig.phone}</span>
+                    <span className="text-[11px] text-slate-400 block font-medium">
+                      Direct Phone
+                    </span>
+                    <span className="font-semibold text-white">{siteConfig.phone}</span>
                   </div>
                 </a>
 
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="flex items-center gap-3 text-text hover:text-accent transition-colors group"
+                  className="flex items-center gap-3.5 text-white/90 hover:text-gold-300 transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-white border border-border flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-accent transition-colors shadow-xs">
+                  <div className="w-10 h-10 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-primary transition-colors shadow-xs">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-xs text-text-muted block">Email Inquiries</span>
-                    <span className="font-semibold text-primary">{siteConfig.email}</span>
+                    <span className="text-[11px] text-slate-400 block font-medium">
+                      Email Inquiries
+                    </span>
+                    <span className="font-semibold text-white">{siteConfig.email}</span>
                   </div>
                 </a>
 
-                <div className="flex items-start gap-3 text-text">
-                  <div className="w-10 h-10 rounded-lg bg-white border border-border flex items-center justify-center text-primary shrink-0 shadow-xs mt-0.5">
+                <div className="flex items-start gap-3.5 text-white/90">
+                  <div className="w-10 h-10 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-accent shrink-0 shadow-xs mt-0.5">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-xs text-text-muted block">Office Address</span>
-                    <span className="font-medium text-xs sm:text-sm text-text-muted leading-relaxed">
+                    <span className="text-[11px] text-slate-400 block font-medium">
+                      Office Address
+                    </span>
+                    <span className="font-medium text-xs sm:text-sm text-slate-300 leading-relaxed">
                       {siteConfig.address}
                     </span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 text-text pt-2">
-                  <div className="w-10 h-10 rounded-lg bg-white border border-border flex items-center justify-center text-accent shrink-0 shadow-xs">
+                <div className="flex items-center gap-3.5 text-white/90 pt-2 border-t border-white/10">
+                  <div className="w-10 h-10 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-accent shrink-0 shadow-xs">
                     <Clock className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-xs text-text-muted block">Turnaround Time</span>
-                    <span className="font-semibold text-xs sm:text-sm text-primary">
+                    <span className="text-[11px] text-slate-400 block font-medium">
+                      Turnaround Time
+                    </span>
+                    <span className="font-semibold text-xs sm:text-sm text-gold-300">
                       Response within 1 business day
                     </span>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Strategic Partner Footnotes */}
-            <div className="p-5 rounded-xl bg-white border border-border text-xs text-text-muted space-y-2">
-              <p>
-                <strong className="text-primary font-semibold">
-                  Implementation Partner:
-                </strong>{' '}
-                {siteConfig.implementationPartner}
-              </p>
-              <p>
-                <strong className="text-primary font-semibold">
-                  Staffing Franchise Partner:
-                </strong>{' '}
-                {siteConfig.staffingPartner}
-              </p>
+              {/* Strategic Partner Footnotes inside Navy Panel */}
+              <div className="p-4 rounded-xl bg-navy-950/60 border border-navy-900 text-xs text-slate-300 space-y-1.5">
+                <p>
+                  <strong className="text-white font-semibold">
+                    Implementation Partner:
+                  </strong>{' '}
+                  {siteConfig.implementationPartner}
+                </p>
+                <p>
+                  <strong className="text-white font-semibold">
+                    Staffing Franchise Partner:
+                  </strong>{' '}
+                  {siteConfig.staffingPartner}
+                </p>
+              </div>
             </div>
           </motion.div>
 
-          {/* Right Column: Interactive Form (7 cols) */}
+          {/* Right Column: Clean White Interactive Form (7 cols) */}
           <motion.div
             variants={scaleInVariant}
             initial="hidden"
@@ -148,7 +156,7 @@ export const ContactForm: React.FC = () => {
             viewport={{ once: true, amount: 0.2 }}
             className="lg:col-span-7"
           >
-            <Card className="p-8 sm:p-10 bg-white border border-border shadow-card rounded-2xl relative">
+            <Card className="p-8 sm:p-10 bg-white border border-slate-200 shadow-card rounded-2xl relative">
               {submitted ? (
                 <div className="py-12 text-center space-y-4">
                   <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-4 border border-emerald-200">
@@ -157,12 +165,12 @@ export const ContactForm: React.FC = () => {
                   <h3 className="font-heading font-bold text-2xl text-primary">
                     Message Received
                   </h3>
-                  <p className="text-text-muted text-base max-w-md mx-auto">
+                  <p className="text-slate-600 text-base max-w-md mx-auto">
                     Thank you for contacting R&amp;G Consultancy Services. We have
                     received your inquiry and will respond within one business day.
                   </p>
                   <Button
-                    variant="ghost"
+                    variant="secondary"
                     size="sm"
                     onClick={() => {
                       setSubmitted(false);
@@ -196,11 +204,9 @@ export const ContactForm: React.FC = () => {
                           value={formData.firstName}
                           onChange={handleChange}
                           placeholder=""
-                          className="w-full px-4 py-3 rounded-lg bg-navy-50/50 border border-border focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all text-sm text-text"
+                          className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm text-primary"
                         />
-                        <span className="text-xs text-text-muted mt-1.5 block">
-                          First
-                        </span>
+                        <span className="text-xs text-slate-500 mt-1.5 block">First</span>
                       </div>
 
                       <div>
@@ -212,9 +218,9 @@ export const ContactForm: React.FC = () => {
                           value={formData.lastName}
                           onChange={handleChange}
                           placeholder=""
-                          className="w-full px-4 py-3 rounded-lg bg-navy-50/50 border border-border focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all text-sm text-text"
+                          className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm text-primary"
                         />
-                        <span className="text-xs text-text-muted mt-1.5 block">Last</span>
+                        <span className="text-xs text-slate-500 mt-1.5 block">Last</span>
                       </div>
                     </div>
                   </div>
@@ -236,7 +242,7 @@ export const ContactForm: React.FC = () => {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder=""
-                        className="w-full px-4 py-3 rounded-lg bg-navy-50/50 border border-border focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all text-sm text-text"
+                        className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm text-primary"
                       />
                     </div>
 
@@ -254,7 +260,7 @@ export const ContactForm: React.FC = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder=""
-                        className="w-full px-4 py-3 rounded-lg bg-navy-50/50 border border-border focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all text-sm text-text"
+                        className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm text-primary"
                       />
                     </div>
                   </div>
@@ -275,17 +281,17 @@ export const ContactForm: React.FC = () => {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder=""
-                      className="w-full px-4 py-3 rounded-lg bg-navy-50/50 border border-border focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all text-sm text-text resize-none"
+                      className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm text-primary resize-none"
                     />
                   </div>
 
-                  {/* Submit Button */}
+                  {/* Submit Button: Authoritative Deep Navy */}
                   <div className="pt-2">
                     <Button
                       type="submit"
                       variant="primary"
                       size="lg"
-                      className="w-full sm:w-auto px-9 py-3.5 shadow-md font-semibold text-sm"
+                      className="w-full sm:w-auto px-9 py-3.5 shadow-sm font-semibold text-sm"
                       disabled={loading}
                       icon={<Send className="w-4 h-4 ml-1" />}
                     >

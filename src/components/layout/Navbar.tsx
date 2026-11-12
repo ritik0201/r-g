@@ -9,7 +9,9 @@ import { Button } from '@/components/common/Button';
 import { cn } from '@/lib/utils';
 
 /**
- * Top sticky navigation bar matching original brand identity and Google Stitch design specifications.
+ * Top navigation bar:
+ * Features a clean, professional corporate wordmark logo (without the heavy navy box container),
+ * authoritative Deep Navy desktop navigation, and a Deep Navy primary action button.
  */
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,32 +38,33 @@ export const Navbar: React.FC = () => {
     <>
       <header
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-border',
+          'fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-slate-200/80',
           isScrolled ? 'shadow-nav py-3' : 'py-4'
         )}
       >
         <div className="container-page flex items-center justify-between gap-4">
-          {/* Brand Logo & Name */}
+          {/* Brand Logo & Name - Clean professional typography without the box */}
           <a
             href="#home"
-            className="flex items-center gap-3 shrink-0 focus-visible:outline-accent group"
+            className="flex items-center gap-3.5 shrink-0 focus-visible:outline-primary group"
             aria-label={`${siteConfig.name} Home`}
           >
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-accent font-heading font-black text-xl shadow-sm border border-navy-800 group-hover:scale-105 transition-transform">
-              {siteConfig.shortName}
-            </div>
-            <div className="flex flex-col">
-              <span className="font-heading font-bold text-base md:text-lg text-primary tracking-tight leading-tight">
+            <span className="font-heading font-black text-2xl md:text-3xl text-primary tracking-tight group-hover:text-primary-light transition-colors">
+              R&amp;G
+            </span>
+            <div className="h-7 w-px bg-slate-300 hidden sm:block" aria-hidden="true" />
+            <div className="flex flex-col justify-center">
+              <span className="font-heading font-bold text-sm md:text-base text-primary tracking-tight leading-tight">
                 {siteConfig.name}
               </span>
-              <span className="text-[11px] font-medium text-text-muted tracking-tight">
+              <span className="text-[11px] font-medium text-slate-500 tracking-tight mt-0.5">
                 {siteConfig.subTagline}
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-7" aria-label="Main Navigation">
+          <nav className="hidden md:flex items-center gap-8" aria-label="Main Navigation">
             {navigationLinks.map((link) => {
               const targetId = link.href.startsWith('#') ? link.href.slice(1) : link.id;
               const isActive = activeSection === targetId;
@@ -71,17 +74,17 @@ export const Navbar: React.FC = () => {
                   key={link.id}
                   href={link.href}
                   className={cn(
-                    'relative py-1 text-sm font-medium transition-colors hover:text-primary',
+                    'relative py-1 text-sm font-medium transition-colors',
                     isActive
-                      ? 'text-primary font-semibold'
-                      : 'text-text-muted hover:text-primary'
+                      ? 'text-primary font-bold'
+                      : 'text-slate-600 hover:text-primary'
                   )}
                 >
                   {link.label}
                   {isActive && (
                     <motion.span
                       layoutId="activeNavIndicator"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent rounded-full"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -92,7 +95,7 @@ export const Navbar: React.FC = () => {
 
           {/* Right Action Cluster */}
           <div className="flex items-center gap-3 sm:gap-4 shrink-0">
-            {/* CTA Button */}
+            {/* CTA Button: Authoritative Deep Navy */}
             <Button
               href="#contact"
               variant="primary"
@@ -108,7 +111,7 @@ export const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={toggle}
-              className="md:hidden p-2 rounded-lg text-primary hover:bg-navy-50 border border-border focus-visible:outline-accent"
+              className="md:hidden p-2 rounded-lg text-primary hover:bg-slate-100 border border-slate-200 focus-visible:outline-primary"
               aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={isOpen}
             >
@@ -138,20 +141,21 @@ export const Navbar: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-white shadow-float border-l border-border p-6 flex flex-col justify-between overflow-y-auto md:hidden"
+              className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-white shadow-float border-l border-slate-200 p-6 flex flex-col justify-between overflow-y-auto md:hidden"
             >
               <div>
                 {/* Header in Drawer */}
-                <div className="flex items-center justify-between pb-6 border-b border-border">
+                <div className="flex items-center justify-between pb-6 border-b border-slate-200">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-accent font-heading font-black text-lg">
-                      {siteConfig.shortName}
-                    </div>
+                    <span className="font-heading font-black text-2xl text-primary tracking-tight">
+                      R&amp;G
+                    </span>
+                    <div className="h-6 w-px bg-slate-200" />
                     <div>
-                      <span className="font-heading font-bold text-sm text-primary block leading-tight">
+                      <span className="font-heading font-bold text-xs text-primary block leading-tight">
                         {siteConfig.name}
                       </span>
-                      <span className="text-[10px] text-text-muted">
+                      <span className="text-[10px] text-slate-500">
                         {siteConfig.subTagline}
                       </span>
                     </div>
@@ -159,7 +163,7 @@ export const Navbar: React.FC = () => {
                   <button
                     type="button"
                     onClick={close}
-                    className="p-2 rounded-lg text-text-muted hover:text-primary hover:bg-navy-50"
+                    className="p-2 rounded-lg text-slate-500 hover:text-primary hover:bg-slate-100"
                     aria-label="Close menu"
                   >
                     <X className="w-5 h-5" />
@@ -180,10 +184,10 @@ export const Navbar: React.FC = () => {
                         href={link.href}
                         onClick={close}
                         className={cn(
-                          'flex items-center justify-between px-4 py-3 rounded-button text-base font-medium transition-colors',
+                          'flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium transition-colors',
                           isActive
-                            ? 'bg-lavender-100 text-primary font-bold'
-                            : 'text-text-muted hover:text-primary hover:bg-navy-50'
+                            ? 'bg-slate-100 text-primary font-bold'
+                            : 'text-slate-600 hover:text-primary hover:bg-slate-50'
                         )}
                       >
                         <span>{link.label}</span>
@@ -195,7 +199,7 @@ export const Navbar: React.FC = () => {
               </div>
 
               {/* Drawer Footer CTA */}
-              <div className="pt-6 border-t border-border space-y-4">
+              <div className="pt-6 border-t border-slate-200 space-y-4">
                 <Button
                   href="#contact"
                   variant="primary"
@@ -206,7 +210,7 @@ export const Navbar: React.FC = () => {
                 >
                   Get in Touch
                 </Button>
-                <div className="text-xs text-text-muted text-center space-y-1">
+                <div className="text-xs text-slate-500 text-center space-y-1">
                   <p>{siteConfig.phone}</p>
                   <p>{siteConfig.email}</p>
                 </div>

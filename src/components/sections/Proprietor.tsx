@@ -1,89 +1,99 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Quote, Award } from 'lucide-react';
 import { proprietorData } from '@/data/about';
 import { Container } from '@/components/common/Container';
-import { Card } from '@/components/common/Card';
-import { scaleInVariant } from '@/lib/motion';
+import { fadeUpVariant } from '@/lib/motion';
 
 /**
  * Meet the Proprietor Section:
- * Highlights Mr. Sanjay Makhija with photographic portrait, executive pull-quote,
- * and leadership statement formatted with refined typography.
+ * Features a direct executive photograph without card containers, borders, or plaques,
+ * paired seamlessly with the editorial narrative and leadership quote.
  */
 export const Proprietor: React.FC = () => {
   return (
     <section
       id="founder"
-      className="py-20 lg:py-24 bg-navy-50/50 relative overflow-hidden"
+      className="py-20 lg:py-28 bg-slate-50/70 border-y border-slate-200/80 relative"
     >
       <Container>
-        <motion.div
-          variants={scaleInVariant}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="max-w-4xl mx-auto"
-        >
-          <Card className="p-8 sm:p-12 lg:p-14 bg-white border border-border shadow-card relative overflow-hidden text-center flex flex-col items-center">
-            {/* Ambient accent background glow */}
-            <div
-              className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-gold-200/20 blur-3xl pointer-events-none"
-              aria-hidden="true"
-            />
-            <div
-              className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-lavender-200/30 blur-3xl pointer-events-none"
-              aria-hidden="true"
-            />
-
-            {/* Profile Avatar with Gold Border */}
-            <div className="relative mb-6">
-              <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-gradient-to-tr from-accent via-gold-200 to-navy-900 shadow-md">
-                <img
-                  src={proprietorData.image}
-                  alt={proprietorData.imageAlt}
-                  className="w-full h-full rounded-full object-cover bg-white"
-                  loading="lazy"
-                />
-              </div>
-              <div className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-primary text-accent flex items-center justify-center border-2 border-white shadow-sm">
-                <Award className="w-4 h-4" />
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            variants={fadeUpVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center"
+          >
+            {/* Left Column: Direct Authentic Photograph (No card wrapper) */}
+            <div className="lg:col-span-5 flex flex-col items-center lg:items-start">
+              <img
+                src={proprietorData.image}
+                alt={proprietorData.imageAlt}
+                className="w-full max-w-sm h-80 sm:h-96 rounded-2xl object-cover object-top shadow-md"
+                loading="lazy"
+              />
+              <div className="mt-4 text-center lg:text-left">
+                <h3 className="font-heading font-bold text-xl text-primary leading-tight">
+                  {proprietorData.name}
+                </h3>
+                <p className="text-xs font-semibold text-accent uppercase tracking-wider font-mono mt-1">
+                  Founder &amp; Proprietor
+                </p>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  R&amp;G Consultancy Services
+                </p>
               </div>
             </div>
 
-            {/* Title & Name */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-50 border border-navy-100 mb-2">
-              <span className="eyebrow text-[11px] text-accent font-bold tracking-wider">
-                {proprietorData.eyebrow}
+            {/* Right Column: Leadership Narrative & Editorial Pull-Quote */}
+            <div className="lg:col-span-7 flex flex-col items-start text-left">
+              <span className="eyebrow text-xs font-bold text-accent tracking-widest uppercase font-mono mb-2.5 block">
+                LEADERSHIP SPOTLIGHT
               </span>
-            </div>
-            <h2 className="heading-section text-primary text-2xl sm:text-3xl mb-1">
-              {proprietorData.heading}
-            </h2>
-            <h3 className="font-heading font-bold text-accent text-lg sm:text-xl mb-6">
-              {proprietorData.name}
-            </h3>
 
-            {/* Pull Quote */}
-            <div className="max-w-2xl mx-auto my-4 p-6 sm:p-7 rounded-2xl bg-lavender-100/60 border-l-4 border-accent text-left relative shadow-xs">
-              <Quote className="w-8 h-8 text-accent/30 absolute top-4 right-4 pointer-events-none" />
-              <blockquote className="italic font-medium text-primary text-base sm:text-lg leading-relaxed">
+              <h2 className="heading-section text-primary text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+                Meet the Proprietor
+              </h2>
+
+              {/* Distinguished Pull Quote with Gold Accent Bar */}
+              <blockquote className="font-heading italic text-xl sm:text-2xl text-primary leading-relaxed border-l-4 border-accent pl-5 my-6 py-1">
                 {proprietorData.quote}
               </blockquote>
-            </div>
 
-            {/* Bio Paragraph with semantic bold emphasis */}
-            <p className="text-text-muted text-base sm:text-lg leading-relaxed max-w-2xl mt-4">
-              With extensive experience in both technology and talent management, Mr.
-              Makhija founded R&amp;G to deliver solutions built on{' '}
-              <strong className="font-semibold text-primary">
-                clarity and accountability
-              </strong>
-              , leveraging strategic partnerships to offer comprehensive, high-quality
-              services.
-            </p>
-          </Card>
-        </motion.div>
+              {/* Executive Bio */}
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8">
+                With extensive experience in both technology and talent management,{' '}
+                <strong className="font-semibold text-primary">Mr. Makhija</strong>{' '}
+                founded R&amp;G to deliver solutions built on{' '}
+                <strong className="font-semibold text-primary">
+                  clarity and accountability
+                </strong>
+                , leveraging strategic partnerships to offer comprehensive, high-quality
+                services.
+              </p>
+
+              {/* Core Commitments Checklist */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full pt-6 border-t border-slate-200">
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-primary">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                  Outcome-Driven Delivery
+                </div>
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-primary">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                  Senior Hands-On Consulting
+                </div>
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-primary">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                  Cross-Sector IT &amp; HR Synergy
+                </div>
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-primary">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                  Long-Term Strategic Partnerships
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </Container>
     </section>
   );

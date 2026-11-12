@@ -1,14 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Users, Laptop, GraduationCap } from 'lucide-react';
+import { Layers, Users, Laptop, GraduationCap } from 'lucide-react';
 import { pillarsData, pillarsHeading } from '@/data/pillars';
 import { Container } from '@/components/common/Container';
 import { SectionHeading } from '@/components/common/SectionHeading';
 import { Card } from '@/components/common/Card';
 import { staggerContainerVariant, fadeUpVariant } from '@/lib/motion';
 
-const iconFallbackMap: Record<string, React.ElementType> = {
-  'it-consultancy': Code2,
+const pillarIcons: Record<string, React.ElementType> = {
+  'it-consultancy': Layers,
   'hr-staffing': Users,
   'software-projects': Laptop,
   'it-training': GraduationCap,
@@ -40,12 +40,12 @@ const renderPillarDescription = (id: string, description: string) => {
 
 /**
  * Our Service Pillars Section:
- * Displays the 4 service pillars with original copy, semantic formatting,
- * and flaticon visual badges.
+ * Features cards with the exact same icon container & color scheme as the About section
+ * (Deep Navy bg-primary container with refined Gold text-gold-400 icons).
  */
 export const Pillars: React.FC = () => {
   return (
-    <section id="services" className="py-20 lg:py-28 bg-lavender-100/70 relative">
+    <section id="services" className="py-20 lg:py-28 bg-white relative">
       <Container>
         <SectionHeading
           eyebrow={pillarsHeading.eyebrow}
@@ -62,31 +62,22 @@ export const Pillars: React.FC = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {pillarsData.map((pillar) => {
-            const FallbackIcon = iconFallbackMap[pillar.id] || Code2;
+            const Icon = pillarIcons[pillar.id] || Layers;
 
             return (
               <motion.div key={pillar.id} variants={fadeUpVariant} className="h-full">
                 <Card
                   variant="hover"
-                  className="p-7 sm:p-8 flex flex-col justify-between h-full bg-white group hover:border-accent hover:shadow-card-hover transition-all"
+                  className="p-7 sm:p-8 flex flex-col justify-between h-full bg-white border border-slate-200 group hover:border-primary/60 hover:shadow-card-hover transition-all duration-300 rounded-2xl"
                 >
                   <div>
-                    {/* Top row: Number & Icon */}
+                    {/* Top row: Number & Icon styled identical to the About section */}
                     <div className="flex items-center justify-between mb-6">
-                      <span className="font-heading font-black text-2xl text-accent">
+                      <span className="font-heading font-black text-2xl text-primary group-hover:text-primary-light transition-colors">
                         {pillar.number}
                       </span>
-                      <div className="w-14 h-14 rounded-xl bg-navy-50 flex items-center justify-center p-2.5 border border-border group-hover:border-accent transition-all duration-300 shadow-xs">
-                        {pillar.iconUrl ? (
-                          <img
-                            src={pillar.iconUrl}
-                            alt={`${pillar.title} icon`}
-                            className="w-full h-full object-contain transition-transform group-hover:scale-110"
-                            loading="lazy"
-                          />
-                        ) : (
-                          <FallbackIcon className="w-6 h-6 text-primary group-hover:text-accent transition-colors" />
-                        )}
+                      <div className="w-12 h-12 rounded-xl bg-primary text-gold-400 flex items-center justify-center shadow-xs transition-transform group-hover:scale-105">
+                        <Icon className="w-6 h-6" />
                       </div>
                     </div>
 
@@ -96,15 +87,15 @@ export const Pillars: React.FC = () => {
                     </h3>
 
                     {/* Description */}
-                    <p className="text-text-muted text-sm leading-relaxed">
+                    <p className="text-slate-600 text-sm leading-relaxed">
                       {renderPillarDescription(pillar.id, pillar.description)}
                     </p>
                   </div>
 
                   {/* Bottom Tagline */}
                   {pillar.tagline && (
-                    <div className="pt-6 mt-6 border-t border-border">
-                      <span className="text-[11px] font-bold text-text-muted uppercase tracking-wider block font-mono">
+                    <div className="pt-5 mt-6 border-t border-slate-100">
+                      <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block font-mono">
                         {pillar.tagline}
                       </span>
                     </div>

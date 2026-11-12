@@ -21,7 +21,7 @@ const valueIcons: Record<string, React.ElementType> = {
  */
 export const About: React.FC = () => {
   return (
-    <section id="about" className="py-20 lg:py-28 bg-white relative">
+    <section id="about" className="py-14 sm:py-20 lg:py-28 bg-white relative">
       <Container>
         <SectionHeading
           eyebrow={aboutData.eyebrow}
@@ -29,15 +29,15 @@ export const About: React.FC = () => {
           subtitle={aboutData.subtitle}
         />
 
-        {/* Narrative Copy with expanded comfortable width matching Image 1 */}
+        {/* Narrative Copy with expanded comfortable width matching user reference */}
         <motion.div
           variants={fadeUpVariant}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="max-w-4xl lg:max-w-[940px] mx-auto text-center mb-16 space-y-6"
+          viewport={{ once: true, amount: 0.05, margin: '60px 0px 0px 0px' }}
+          className="max-w-4xl lg:max-w-[940px] mx-auto text-center mb-10 sm:mb-16 space-y-4 sm:space-y-6 px-1 sm:px-0"
         >
-          <p className="text-slate-600 text-lg sm:text-xl md:text-[1.2rem] leading-[1.8]">
+          <p className="text-slate-600 text-base sm:text-lg md:text-xl leading-relaxed sm:leading-[1.8]">
             <strong className="font-semibold text-primary">
               R&amp;G Consultancy Services
             </strong>{' '}
@@ -46,7 +46,7 @@ export const About: React.FC = () => {
             began with IT consultancy and expanded into HR consultancy, software project
             delivery, and IT training.
           </p>
-          <p className="text-slate-600 text-lg sm:text-xl md:text-[1.2rem] leading-[1.8]">
+          <p className="text-slate-600 text-base sm:text-lg md:text-xl leading-relaxed sm:leading-[1.8]">
             Our approach is simple: define clear success metrics, engage senior
             consultants hands-on, and leverage trusted partners to deliver faster,
             reliable results.
@@ -58,8 +58,8 @@ export const About: React.FC = () => {
           variants={staggerContainerVariant}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          viewport={{ once: true, amount: 0.02, margin: '60px 0px 0px 0px' }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
         >
           {aboutData.values.map((item) => {
             const Icon = valueIcons[item.iconName] || Eye;
@@ -68,25 +68,27 @@ export const About: React.FC = () => {
               <motion.div key={item.title} variants={fadeUpVariant} className="h-full">
                 <Card
                   variant="hover"
-                  className="p-7 flex flex-col justify-between h-full bg-slate-50/70 border border-slate-200 group hover:bg-white hover:border-primary/50 hover:shadow-card-hover transition-all duration-300"
+                  className="p-5 sm:p-6 md:p-7 flex flex-row sm:flex-col items-start gap-4 sm:gap-0 justify-start sm:justify-between h-full bg-white border border-slate-200/90 shadow-[0_4px_20px_rgba(10,37,64,0.06)] group hover:border-primary/50 hover:shadow-[0_8px_30px_rgba(10,37,64,0.12)] transition-all duration-300 rounded-2xl"
                 >
-                  <div>
-                    <div className="w-12 h-12 rounded-xl bg-primary text-gold-400 flex items-center justify-center shadow-xs mb-5 transition-transform group-hover:scale-105">
-                      <Icon className="w-6 h-6" />
-                    </div>
+                  {/* Icon: Deep Navy container with refined Gold accent */}
+                  <div className="w-12 h-12 rounded-xl bg-primary text-gold-400 flex items-center justify-center shadow-xs shrink-0 sm:mb-5 transition-transform group-hover:scale-105">
+                    <Icon className="w-6 h-6" />
+                  </div>
 
-                    <h3 className="font-heading font-bold text-lg sm:text-xl text-primary mb-2">
+                  {/* Content: Title & Description */}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-heading font-bold text-lg sm:text-xl text-primary mb-1.5 sm:mb-2">
                       {item.title}
                     </h3>
 
                     {item.title === 'Values' ? (
-                      <p className="text-slate-600 text-sm leading-relaxed font-medium">
+                      <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-semibold">
                         Accountability <span className="text-accent">•</span> Clarity{' '}
                         <span className="text-accent">•</span> Partnership{' '}
                         <span className="text-accent">•</span> Impact
                       </p>
                     ) : (
-                      <p className="text-slate-600 text-sm leading-relaxed">
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                         {item.description}
                       </p>
                     )}

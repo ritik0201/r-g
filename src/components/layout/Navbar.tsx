@@ -39,25 +39,28 @@ export const Navbar: React.FC = () => {
       <header
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-slate-200/80',
-          isScrolled ? 'shadow-nav py-3' : 'py-4'
+          isScrolled ? 'shadow-nav py-2.5 sm:py-3' : 'py-3 sm:py-4'
         )}
       >
-        <div className="container-page flex items-center justify-between gap-4">
+        <div className="container-page flex items-center justify-between gap-3 sm:gap-4">
           {/* Brand Logo & Name - Clean professional typography without the box */}
           <a
             href="#home"
-            className="flex items-center gap-3.5 shrink-0 focus-visible:outline-primary group"
+            className="flex items-center gap-2.5 sm:gap-3.5 min-w-0 shrink focus-visible:outline-primary group"
             aria-label={`${siteConfig.name} Home`}
           >
-            <span className="font-heading font-black text-2xl md:text-3xl text-primary tracking-tight group-hover:text-primary-light transition-colors">
+            <span className="font-heading font-black text-2xl sm:text-3xl text-primary tracking-tight group-hover:text-primary-light transition-colors shrink-0">
               R&amp;G
             </span>
-            <div className="h-7 w-px bg-slate-300 hidden sm:block" aria-hidden="true" />
-            <div className="flex flex-col justify-center">
-              <span className="font-heading font-bold text-sm md:text-base text-primary tracking-tight leading-tight">
+            <div
+              className="h-6 sm:h-7 w-px bg-slate-300 hidden xs:block shrink-0"
+              aria-hidden="true"
+            />
+            <div className="flex flex-col justify-center min-w-0">
+              <span className="font-heading font-bold text-xs sm:text-sm md:text-base text-primary tracking-tight leading-tight truncate">
                 {siteConfig.name}
               </span>
-              <span className="text-[11px] font-medium text-slate-500 tracking-tight mt-0.5">
+              <span className="text-[10px] sm:text-[11px] font-medium text-slate-500 tracking-tight mt-0.5 hidden sm:block truncate">
                 {siteConfig.subTagline}
               </span>
             </div>
@@ -94,7 +97,7 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Right Action Cluster */}
-          <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-4 shrink-0">
             {/* CTA Button: Authoritative Deep Navy */}
             <Button
               href="#contact"
@@ -107,11 +110,11 @@ export const Navbar: React.FC = () => {
               Get in Touch
             </Button>
 
-            {/* Mobile Hamburger Button */}
+            {/* Mobile Hamburger Button - Minimum 44x44px ergonomic touch target */}
             <button
               type="button"
               onClick={toggle}
-              className="md:hidden p-2 rounded-lg text-primary hover:bg-slate-100 border border-slate-200 focus-visible:outline-primary"
+              className="md:hidden p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-primary hover:bg-slate-100 border border-slate-200 focus-visible:outline-primary shrink-0 transition-colors"
               aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={isOpen}
             >
@@ -141,21 +144,21 @@ export const Navbar: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-white shadow-float border-l border-slate-200 p-6 flex flex-col justify-between overflow-y-auto md:hidden"
+              className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-[300px] xs:max-w-xs sm:max-w-sm bg-white shadow-float border-l border-slate-200 p-5 sm:p-6 flex flex-col justify-between overflow-y-auto md:hidden"
             >
               <div>
                 {/* Header in Drawer */}
-                <div className="flex items-center justify-between pb-6 border-b border-slate-200">
-                  <div className="flex items-center gap-3">
-                    <span className="font-heading font-black text-2xl text-primary tracking-tight">
+                <div className="flex items-center justify-between pb-4 sm:pb-5 border-b border-slate-200">
+                  <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                    <span className="font-heading font-black text-xl sm:text-2xl text-primary tracking-tight shrink-0">
                       R&amp;G
                     </span>
-                    <div className="h-6 w-px bg-slate-200" />
-                    <div>
-                      <span className="font-heading font-bold text-xs text-primary block leading-tight">
+                    <div className="h-5 sm:h-6 w-px bg-slate-200 shrink-0" />
+                    <div className="min-w-0">
+                      <span className="font-heading font-bold text-xs text-primary block leading-tight truncate">
                         {siteConfig.name}
                       </span>
-                      <span className="text-[10px] text-slate-500">
+                      <span className="text-[10px] text-slate-500 truncate block">
                         {siteConfig.subTagline}
                       </span>
                     </div>
@@ -163,7 +166,7 @@ export const Navbar: React.FC = () => {
                   <button
                     type="button"
                     onClick={close}
-                    className="p-2 rounded-lg text-slate-500 hover:text-primary hover:bg-slate-100"
+                    className="p-2 min-w-[40px] min-h-[40px] flex items-center justify-center rounded-lg text-slate-500 hover:text-primary hover:bg-slate-100 shrink-0 transition-colors"
                     aria-label="Close menu"
                   >
                     <X className="w-5 h-5" />
@@ -171,7 +174,7 @@ export const Navbar: React.FC = () => {
                 </div>
 
                 {/* Nav Links */}
-                <nav className="flex flex-col py-6 space-y-1">
+                <nav className="flex flex-col py-5 sm:py-6 space-y-1">
                   {navigationLinks.map((link) => {
                     const targetId = link.href.startsWith('#')
                       ? link.href.slice(1)
@@ -184,7 +187,7 @@ export const Navbar: React.FC = () => {
                         href={link.href}
                         onClick={close}
                         className={cn(
-                          'flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium transition-colors',
+                          'flex items-center justify-between px-3.5 sm:px-4 py-3 min-h-[44px] rounded-lg text-base font-medium transition-colors',
                           isActive
                             ? 'bg-slate-100 text-primary font-bold'
                             : 'text-slate-600 hover:text-primary hover:bg-slate-50'
@@ -199,12 +202,12 @@ export const Navbar: React.FC = () => {
               </div>
 
               {/* Drawer Footer CTA */}
-              <div className="pt-6 border-t border-slate-200 space-y-4">
+              <div className="pt-5 sm:pt-6 border-t border-slate-200 space-y-4">
                 <Button
                   href="#contact"
                   variant="primary"
                   size="md"
-                  className="w-full justify-center"
+                  className="w-full justify-center min-h-[44px]"
                   onClick={close}
                   icon={<ArrowRight className="w-4 h-4 ml-1" />}
                 >
@@ -212,7 +215,7 @@ export const Navbar: React.FC = () => {
                 </Button>
                 <div className="text-xs text-slate-500 text-center space-y-1">
                   <p>{siteConfig.phone}</p>
-                  <p>{siteConfig.email}</p>
+                  <p className="break-all">{siteConfig.email}</p>
                 </div>
               </div>
             </motion.div>

@@ -35,9 +35,15 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
   const displayText = subtext || subtitle;
 
   return (
-    <div className={cn('flex flex-col mb-10 md:mb-14', alignClasses[align], className)}>
+    <div
+      className={cn(
+        'flex flex-col mb-8 sm:mb-12 md:mb-14',
+        alignClasses[align],
+        className
+      )}
+    >
       {eyebrow && (
-        <span className="eyebrow mb-2.5 font-bold tracking-widest block text-accent text-xs">
+        <span className="eyebrow mb-2 sm:mb-2.5 font-bold tracking-widest block text-accent text-xs">
           {eyebrow}
         </span>
       )}
@@ -46,7 +52,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
         {accentText && <span className="text-accent ml-2">{accentText}</span>}
       </HeadingTag>
       {displayText && (
-        <p className="mt-3 text-slate-600 text-base md:text-lg max-w-2xl leading-relaxed">
+        <p className="mt-2.5 sm:mt-3 text-slate-600 text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed">
           {displayText}
         </p>
       )}

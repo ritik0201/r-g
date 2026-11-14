@@ -1,21 +1,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { partnersData, partnersHeading } from '@/data/partners';
+import { ArrowUpRight } from 'lucide-react';
+import { strategicPartnersData, partnersHeading } from '@/data/partners';
 import { Container } from '@/components/common/Container';
 import { Card } from '@/components/common/Card';
 import { SectionHeading } from '@/components/common/SectionHeading';
 import { staggerContainerVariant, fadeUpVariant } from '@/lib/motion';
 
 /**
- * Trusted Partnerships Section:
- * Highlights institutional partners: Simplified IT Solutions,
- * Talent Corner HR Services, Mikado Solutions, and Your Enterprise.
+ * Strategic Delivery Partners Section:
+ * Highlights institutional ecosystem partners (Talent Corner, Simplified IT, Mikado Solutions)
+ * with dedicated monogram insignias, domain badges, and practice specializations.
  */
 export const Partners: React.FC = () => {
   return (
     <section
       id="partnerships"
-      className="py-14 sm:py-20 lg:py-24 bg-slate-50/70 border-y border-slate-200/70 relative"
+      className="py-20 lg:py-28 bg-[#f4f7fb]/80 border-y border-slate-200/80 relative"
     >
       <Container>
         {/* Section Header */}
@@ -25,45 +26,49 @@ export const Partners: React.FC = () => {
           subtitle={partnersHeading.subtitle}
         />
 
-        {/* 4 Partner Cards Grid: 1 col on mobile, 2 on tablet, 4 on desktop */}
+        {/* 3 Partner Cards Grid */}
         <motion.div
           variants={staggerContainerVariant}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.02, margin: '60px 0px 0px 0px' }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+          viewport={{ once: true, amount: 0.05, margin: '60px 0px 0px 0px' }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto"
         >
-          {partnersData.map((partner) => {
+          {strategicPartnersData.map((partner) => {
             return (
               <motion.div key={partner.id} variants={fadeUpVariant} className="h-full">
                 <Card
                   variant="hover"
-                  className="p-5 sm:p-7 text-center bg-white border border-slate-200 rounded-2xl flex flex-col items-center justify-between h-full group hover:border-primary/50 hover:shadow-card-hover transition-all duration-300"
+                  className="p-7 sm:p-8 bg-white border border-slate-200/90 rounded-2xl flex flex-col justify-between h-full shadow-xs hover:shadow-card-hover hover:border-primary/50 transition-all duration-300 group"
                 >
-                  <div className="flex flex-col items-center w-full">
-                    {/* Partner Logo Box */}
-                    <div className="w-full h-18 sm:h-20 bg-slate-50/60 rounded-xl border border-slate-200/70 shadow-2xs flex items-center justify-center p-2.5 sm:p-3 mb-4 sm:mb-5 group-hover:border-primary/30 transition-colors">
-                      <img
-                        src={partner.logoUrl}
-                        alt={`${partner.name} logo`}
-                        className="max-h-10 sm:max-h-12 max-w-[85%] object-contain opacity-90 group-hover:opacity-100 transition-opacity"
-                        loading="lazy"
-                      />
+                  <div>
+                    {/* Top Row: Monogram Insignia & Category Pill */}
+                    <div className="flex items-center justify-between gap-3 mb-5">
+                      <span className="w-10 h-10 rounded-lg bg-sky-100/70 border border-sky-200/70 text-primary font-mono font-bold text-xs flex items-center justify-center shrink-0 shadow-2xs">
+                        {partner.monogram}
+                      </span>
+                      <span className="text-[10px] font-mono font-bold text-sky-800 bg-sky-50 border border-sky-200/60 px-2.5 py-0.5 rounded-full uppercase tracking-wider text-right">
+                        {partner.badge}
+                      </span>
                     </div>
 
-                    <span className="text-[10px] font-bold text-accent uppercase tracking-widest block mb-1.5 sm:mb-2 font-mono">
-                      {partner.role}
-                    </span>
-
-                    <h3 className="font-heading font-bold text-base sm:text-lg text-primary mb-1.5 sm:mb-2 leading-snug">
+                    {/* Partner Name */}
+                    <h3 className="font-heading font-bold text-xl text-primary mb-3 leading-snug group-hover:text-primary-light transition-colors">
                       {partner.name}
                     </h3>
 
-                    {partner.description && (
-                      <p className="text-slate-500 text-xs leading-relaxed max-w-xs mt-1">
-                        {partner.description}
-                      </p>
-                    )}
+                    {/* Description */}
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                      {partner.description}
+                    </p>
+                  </div>
+
+                  {/* Specialization Footer Link */}
+                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-primary/80 group-hover:text-primary transition-colors">
+                    <span className="text-accent text-[11px] font-mono font-bold tracking-tight">
+                      {partner.specialization}
+                    </span>
+                    <ArrowUpRight className="w-4 h-4 text-accent shrink-0 ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
                 </Card>
               </motion.div>

@@ -1,105 +1,96 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Layers, Users, Laptop, GraduationCap } from 'lucide-react';
-import { pillarsData, pillarsHeading } from '@/data/pillars';
+import { ArrowRight, Radio, Scale, Laptop, GraduationCap } from 'lucide-react';
+import { practiceAreasData, practiceAreasHeading } from '@/data/pillars';
 import { Container } from '@/components/common/Container';
-import { SectionHeading } from '@/components/common/SectionHeading';
 import { Card } from '@/components/common/Card';
 import { staggerContainerVariant, fadeUpVariant } from '@/lib/motion';
 
-const pillarIcons: Record<string, React.ElementType> = {
-  'it-consultancy': Layers,
-  'hr-staffing': Users,
-  'software-projects': Laptop,
-  'it-training': GraduationCap,
+const iconMap: Record<string, React.ElementType> = {
+  Radio,
+  Scale,
+  Laptop,
+  GraduationCap,
 };
 
 /**
- * Helper to render pillar descriptions with exact semantic bolding
- */
-const renderPillarDescription = (id: string, description: string) => {
-  if (id === 'hr-staffing') {
-    return (
-      <>
-        End-to-end talent acquisition and workforce solutions through our franchise with{' '}
-        <strong className="font-semibold text-primary">Talent Corner HR Services</strong>.
-      </>
-    );
-  }
-  if (id === 'it-training') {
-    return (
-      <>
-        Customized corporate training in modern technologies (Java, Python, Fullstack) in
-        partnership with{' '}
-        <strong className="font-semibold text-primary">Mikado Solutions</strong>.
-      </>
-    );
-  }
-  return description;
-};
-
-/**
- * Our Service Pillars Section:
- * Features cards with the exact same icon container & color scheme as the About section
- * (Deep Navy bg-primary container with refined Gold text-gold-400 icons).
+ * Enterprise Practice Areas Section:
+ * Features a balanced 2-column header and 4 interconnected practice cards
+ * with soft executive gradients, dedicated practice tags, and action triggers.
  */
 export const Pillars: React.FC = () => {
   return (
-    <section id="services" className="py-14 sm:py-20 lg:py-28 bg-white relative">
+    <section
+      id="services"
+      className="py-20 lg:py-28 bg-[#f8fafc]/70 relative border-t border-slate-200/60"
+    >
       <Container>
-        <SectionHeading
-          eyebrow={pillarsHeading.eyebrow}
-          heading={pillarsHeading.heading}
-          subtitle={pillarsHeading.subtitle}
-        />
+        {/* Section Header: 2-Column Split matching the design image */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-end mb-12 sm:mb-16">
+          <div className="lg:col-span-6">
+            <span className="eyebrow text-xs font-bold text-accent tracking-widest uppercase font-mono mb-2.5 block">
+              {practiceAreasHeading.eyebrow}
+            </span>
+            <h2 className="heading-section text-primary text-3xl sm:text-4xl font-bold tracking-tight">
+              {practiceAreasHeading.heading}
+            </h2>
+          </div>
+          <div className="lg:col-span-6">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              {practiceAreasHeading.subtitle}
+            </p>
+          </div>
+        </div>
 
-        {/* 4 Cards Grid: 1 col mobile, 2 cols tablet, 4 cols desktop */}
+        {/* 4 Practice Cards Grid */}
         <motion.div
           variants={staggerContainerVariant}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.02, margin: '60px 0px 0px 0px' }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+          viewport={{ once: true, amount: 0.05, margin: '60px 0px 0px 0px' }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
-          {pillarsData.map((pillar) => {
-            const Icon = pillarIcons[pillar.id] || Layers;
+          {practiceAreasData.map((practice) => {
+            const Icon = iconMap[practice.iconName] || Radio;
 
             return (
-              <motion.div key={pillar.id} variants={fadeUpVariant} className="h-full">
+              <motion.div key={practice.id} variants={fadeUpVariant} className="h-full">
                 <Card
                   variant="hover"
-                  className="p-5 sm:p-7 md:p-8 flex flex-col justify-between h-full bg-white border border-slate-200 group hover:border-primary/60 hover:shadow-card-hover transition-all duration-300 rounded-2xl"
+                  className="p-6 sm:p-7 flex flex-col justify-between h-full bg-gradient-to-b from-[#f2f7fc] via-white to-white border border-slate-200/90 shadow-2xs hover:shadow-card-hover group transition-all duration-300 rounded-2xl"
                 >
                   <div>
-                    {/* Top row: Number & Icon styled identical to the About section */}
-                    <div className="flex items-center justify-between mb-4 sm:mb-6">
-                      <span className="font-heading font-black text-xl sm:text-2xl text-primary group-hover:text-primary-light transition-colors">
-                        {pillar.number}
-                      </span>
-                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary text-gold-400 flex items-center justify-center shadow-xs transition-transform group-hover:scale-105 shrink-0">
-                        <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
-                      </div>
+                    {/* Circle Icon: Soft tinted circle with accent icon */}
+                    <div className="w-11 h-11 rounded-full bg-amber-50/90 border border-amber-200/60 text-accent flex items-center justify-center shadow-2xs mb-5 transition-transform group-hover:scale-105">
+                      <Icon className="w-5 h-5" />
                     </div>
 
+                    {/* Practice Eyebrow */}
+                    <span className="text-[10px] font-mono font-bold tracking-widest text-slate-400 uppercase block mb-1.5">
+                      {practice.practiceNo}
+                    </span>
+
                     {/* Title */}
-                    <h3 className="font-heading font-bold text-lg sm:text-xl text-primary mb-2 sm:mb-3">
-                      {pillar.title}
+                    <h3 className="font-heading font-bold text-xl text-primary mb-3 leading-tight group-hover:text-primary-light transition-colors">
+                      {practice.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                      {renderPillarDescription(pillar.id, pillar.description)}
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                      {practice.description}
                     </p>
                   </div>
 
-                  {/* Bottom Tagline */}
-                  {pillar.tagline && (
-                    <div className="pt-4 sm:pt-5 mt-5 sm:mt-6 border-t border-slate-100">
-                      <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block font-mono">
-                        {pillar.tagline}
-                      </span>
-                    </div>
-                  )}
+                  {/* Explore Link with Arrow */}
+                  <div className="pt-4 border-t border-slate-100">
+                    <a
+                      href={practice.linkHref}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary group-hover:text-accent transition-colors"
+                    >
+                      <span>{practice.linkText}</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </div>
                 </Card>
               </motion.div>
             );

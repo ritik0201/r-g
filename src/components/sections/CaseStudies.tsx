@@ -47,15 +47,15 @@ export const CaseStudies: React.FC = () => {
                 className="group flex flex-col justify-between h-full bg-white overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-all duration-300"
               >
                 <div>
-                  {/* Card Image Area with Category Badge */}
-                  <div className="relative h-56 w-full overflow-hidden bg-navy-100">
+                  {/* Card Image Area with Category Badge - Sharp Edges */}
+                  <div className="relative h-56 w-full overflow-hidden bg-navy-100 rounded-none">
                     <img
                       src={project.image}
                       alt={project.imageAlt}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      className="w-full h-full object-cover rounded-none transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                    <div className="absolute top-3.5 left-3.5 bg-primary/90 backdrop-blur-sm text-white px-2.5 py-1 rounded text-[11px] font-bold tracking-wider uppercase shadow-sm">
+                    <div className="absolute top-3.5 left-3.5 bg-primary/90 backdrop-blur-sm text-white px-2.5 py-1 rounded-none text-[11px] font-bold tracking-wider uppercase shadow-sm">
                       {project.category}
                     </div>
                   </div>

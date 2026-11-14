@@ -1,39 +1,61 @@
 import type { HeroData } from '@/types';
 
 export const heroData: HeroData = {
-  eyebrow: 'STRATEGIC GUIDANCE & HANDS-ON IMPLEMENTATION',
-  headline: 'Your trusted partner in IT & HR Consultancy.',
+  eyebrow: 'ENTERPRISE IT & TALENT CONSULTING • EST. 2023',
+  headlinePart1: 'Technology.',
+  headlinePart2: 'Talent.',
+  headlineAccent: 'Growth.',
+  headline: 'Technology. Talent. Growth.',
   description:
-    'Founded on 1 November 2023, R&G Consultancy Services aligns technology and talent with business growth. We provide end-to-end IT consultancy, HR consultancy, software projects, and IT training—combining strategic guidance with hands-on implementation.',
+    'Aligning technology and talent with business growth. Strategic advisory and disciplined execution for expanding enterprises across Mumbai, Thane, and beyond.',
   primaryCta: {
-    label: 'Get in Touch',
-    href: '#contact',
+    label: 'Our Services',
+    href: '/services',
   },
   secondaryCta: {
-    label: 'Explore Services',
-    href: '#services',
+    label: 'To Schedule',
+    href: '/contact',
+  },
+  stats: [
+    {
+      value: '35+',
+      label: 'Strategic Engagements Delivered',
+    },
+    {
+      value: 'MMR',
+      label: 'Primary Footprint (Mumbai, Thane, NM)',
+    },
+    {
+      value: '100%',
+      label: 'Delivery Model Integrity',
+    },
+  ],
+  image: '/images/hero-meeting.jpg',
+  imageBadge: {
+    title: 'INSTITUTIONAL RIGOR',
+    description: 'Bespoke interventions engineered for enterprise scale.',
   },
   trustSignals: [
     {
-      label: 'Outcome-Driven Consulting',
+      label: 'Strategic Engagements Delivered',
       iconName: 'ShieldCheck',
     },
     {
-      label: 'Partner-Enabled Execution',
+      label: 'Senior Practitioner Led',
       iconName: 'Zap',
     },
   ],
   coreFocus: [
     {
-      title: 'Technology Strategy',
-      iconName: 'Sitemap',
+      title: 'IT Consultancy',
+      iconName: 'Radio',
     },
     {
-      title: 'Executive HR Staffing',
-      iconName: 'UserCheck',
+      title: 'HR & Staffing',
+      iconName: 'Users',
     },
     {
-      title: 'Magento & Integrations',
+      title: 'Software Projects',
       iconName: 'Code2',
     },
     {

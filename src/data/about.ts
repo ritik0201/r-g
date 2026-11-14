@@ -1,5 +1,12 @@
 import type { AboutData, ProprietorData } from '@/types';
 
+export const leadershipQuoteData = {
+  quote:
+    '“Sustainable enterprise growth requires synchronization: technology without skilled hands stalls, and talent without architectural vision drifts.”',
+  author: 'Mr. Sanjay Makhija',
+  role: 'FOUNDER & MANAGING DIRECTOR • R&G CONSULTANCY SERVICES',
+};
+
 export const aboutData: AboutData = {
   eyebrow: 'ABOUT US',
   heading: 'About R&G',
@@ -38,11 +45,10 @@ export const aboutData: AboutData = {
 export const proprietorData: ProprietorData = {
   eyebrow: 'LEADERSHIP',
   heading: 'Meet the Proprietor',
-  name: 'Mr. Sanjay Makhija',
-  title: 'Founder & Proprietor',
+  name: leadershipQuoteData.author,
+  title: 'Founder & Managing Director',
   image: '/images/sanjay-makhija.jpeg',
   imageAlt: 'Mr. Sanjay Makhija - Founder of R&G Consultancy Services',
-  quote:
-    '“Our commitment is simple: every project must deliver measurable value. We don’t just advise; we commit to the outcome.”',
+  quote: leadershipQuoteData.quote,
   bio: 'With extensive experience in both technology and talent management, Mr. Makhija founded R&G to deliver solutions built on clarity and accountability, leveraging strategic partnerships to offer comprehensive, high-quality services.',
 };

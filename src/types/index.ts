@@ -20,7 +20,10 @@ export interface TrustSignal {
  */
 export interface HeroData {
   eyebrow: string;
-  headline: string;
+  headlinePart1: string;
+  headlinePart2: string;
+  headlineAccent: string;
+  headline?: string;
   description: string;
   primaryCta: {
     label: string;
@@ -30,11 +33,78 @@ export interface HeroData {
     label: string;
     href: string;
   };
-  trustSignals: TrustSignal[];
-  coreFocus: Array<{
+  stats: Array<{
+    value: string;
+    label: string;
+  }>;
+  image: string;
+  imageBadge: {
+    title: string;
+    description: string;
+  };
+  trustSignals?: TrustSignal[];
+  coreFocus?: Array<{
     title: string;
     iconName: string;
   }>;
+}
+
+/**
+ * Practice Area item (Enterprise Practice Areas)
+ */
+export interface PracticeAreaItem {
+  id: string;
+  practiceNo: string;
+  title: string;
+  description: string;
+  iconName: string;
+  linkText: string;
+  linkHref: string;
+}
+
+/**
+ * Advantage benefit item
+ */
+export interface AdvantageItem {
+  id: string;
+  title: string;
+  description: string;
+  iconName: string;
+}
+
+/**
+ * How we work step item
+ */
+export interface WorkflowStepItem {
+  step: string;
+  title: string;
+  milestone: string;
+  description: string;
+}
+
+/**
+ * Testimonial item
+ */
+export interface TestimonialItem {
+  id: string;
+  rating: number;
+  quote: string;
+  author: string;
+  role: string;
+  avatar: string;
+}
+
+/**
+ * Strategic Partner item
+ */
+export interface StrategicPartnerItem {
+  id: string;
+  monogram: string;
+  badge: string;
+  name: string;
+  description: string;
+  specialization: string;
+  logoUrl?: string;
 }
 
 /**

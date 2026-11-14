@@ -1,34 +1,30 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { siteConfig } from '@/data/site';
-import { navigationLinks } from '@/data/navigation';
+import { BrandLogo } from '@/components/common/BrandLogo';
 
 /**
  * Enterprise Footer:
- * Anchored in authoritative Deep Navy with crisp White typography,
- * subtle Golden accents, and a clean wordmark logo (without the heavy box).
+ * Dual-optimized:
+ * - Desktop: Deep Navy institutional multi-column structure
+ * - Mobile: Clean centered card layout matching the reference mobile screenshots
  */
 export const Footer: React.FC = () => {
   return (
-    <footer className="w-full bg-primary text-white border-t border-navy-950 pt-12 sm:pt-16 pb-8 sm:pb-12">
+    <footer className="w-full bg-primary text-white border-t border-navy-950 pt-12 sm:pt-16 pb-20 sm:pb-12">
       <div className="container-page">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8 pb-10 sm:pb-14 border-b border-navy-800">
+        {/* Desktop Footer Grid (Hidden on small mobile, visible on sm and up) */}
+        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-10 sm:pb-14 border-b border-navy-800">
           {/* Col 1: Brand & Partner Attribution (5 cols) */}
           <div className="sm:col-span-2 lg:col-span-5 space-y-4">
-            <div className="flex items-center gap-2.5 sm:gap-3.5">
-              <span className="font-heading font-black text-2xl md:text-3xl text-white tracking-tight shrink-0">
-                R&amp;G
-              </span>
-              <div className="h-6 sm:h-7 w-px bg-navy-700 shrink-0" aria-hidden="true" />
-              <div className="flex flex-col justify-center min-w-0">
-                <span className="font-heading font-bold text-sm sm:text-base text-white tracking-tight leading-tight truncate sm:overflow-visible">
-                  {siteConfig.name}
-                </span>
-                <span className="text-[10px] sm:text-[11px] font-medium text-slate-400 tracking-tight mt-0.5">
-                  {siteConfig.subTagline}
-                </span>
-              </div>
-            </div>
+            <Link
+              to="/"
+              className="inline-flex items-center group focus-visible:outline-white py-1"
+              aria-label={`${siteConfig.name} Home`}
+            >
+              <BrandLogo theme="dark" size="md" />
+            </Link>
 
             <p className="font-medium text-xs sm:text-sm text-slate-300 max-w-sm">
               {siteConfig.tagline}
@@ -51,15 +47,21 @@ export const Footer: React.FC = () => {
           {/* Col 2: Navigation Links (3 cols) */}
           <div className="lg:col-span-3 space-y-3 sm:space-y-4">
             <h4 className="font-heading font-bold text-base text-white">Navigate</h4>
-            <ul className="space-y-2 sm:space-y-2.5 text-sm">
-              {navigationLinks.map((link) => (
-                <li key={link.id}>
-                  <a
-                    href={link.href}
-                    className="text-slate-300 hover:text-gold-300 transition-colors inline-flex items-center py-1 font-medium"
+            <ul className="space-y-2 text-sm">
+              {[
+                { label: 'Home', href: '/' },
+                { label: 'Services', href: '/services' },
+                { label: 'Training', href: '/training' },
+                { label: 'About & Partners', href: '/about' },
+                { label: 'Contact', href: '/contact' },
+              ].map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.href}
+                    className="text-slate-300 hover:text-accent transition-colors inline-flex items-center py-1 font-medium"
                   >
                     <span>{link.label}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -68,7 +70,7 @@ export const Footer: React.FC = () => {
           {/* Col 3: Contact Details (4 cols) */}
           <div className="lg:col-span-4 space-y-3 sm:space-y-4">
             <h4 className="font-heading font-bold text-base text-white">Contact</h4>
-            <ul className="space-y-3 sm:space-y-3.5 text-sm text-slate-300">
+            <ul className="space-y-3 text-sm text-slate-300">
               <li className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 text-accent shrink-0 mt-0.5" />
                 <a
@@ -97,22 +99,70 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
+        {/* Mobile-Specific Centered Footer Layout (matches screenshots) */}
+        <div className="sm:hidden flex flex-col items-center text-center space-y-6 pb-6 border-b border-navy-800">
+          <Link to="/" aria-label="Home">
+            <BrandLogo theme="dark" size="md" className="items-center" />
+          </Link>
+
+          <p className="text-xs text-slate-300 italic max-w-xs leading-relaxed">
+            &ldquo;Aligning technology and talent with business growth.&rdquo;
+          </p>
+
+          {/* Links row */}
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs font-semibold text-slate-300">
+            <Link to="/" className="hover:text-accent transition-colors">
+              Home
+            </Link>
+            <Link to="/services" className="hover:text-accent transition-colors">
+              Services
+            </Link>
+            <Link to="/training" className="hover:text-accent transition-colors">
+              Training
+            </Link>
+            <Link to="/about" className="hover:text-accent transition-colors">
+              About &amp; Partners
+            </Link>
+            <Link to="/contact" className="hover:text-accent transition-colors">
+              Contact
+            </Link>
+          </div>
+
+          {/* Thane Office Box */}
+          <div className="w-full bg-[#16273e] rounded-xl p-4 text-left border border-navy-700/80 space-y-1">
+            <span className="text-[11px] font-bold text-accent uppercase tracking-wider block">
+              Thane Office
+            </span>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Lodha iThink Techno Campus, Thane (W), Maharashtra 400607
+            </p>
+            <a
+              href="tel:+912225804100"
+              className="text-xs font-semibold text-white hover:text-accent transition-colors block pt-1"
+            >
+              +91 (022) 2580 4100
+            </a>
+          </div>
+        </div>
+
         {/* Bottom Bar: Copyright & Legal */}
         <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400 text-center sm:text-left">
-          <p>{siteConfig.copyright}</p>
-          <div className="flex items-center gap-2.5">
-            <a href="#privacy" className="hover:text-gold-300 transition-colors py-1">
-              Privacy
-            </a>
+          <p>© 2026 R&amp;G Consultancy Services. All rights reserved.</p>
+          <div className="flex items-center gap-3">
+            <Link to="/contact" className="hover:text-accent transition-colors py-1">
+              Privacy Policy
+            </Link>
             <span className="text-slate-600" aria-hidden="true">
               •
             </span>
-            <a href="#terms" className="hover:text-gold-300 transition-colors py-1">
-              Terms
-            </a>
+            <Link to="/contact" className="hover:text-accent transition-colors py-1">
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>
     </footer>
   );
 };
+
+export default Footer;

@@ -1,36 +1,48 @@
 import React from 'react';
-import { Hero } from '@/components/sections/Hero';
-import { About } from '@/components/sections/About';
-import { Proprietor } from '@/components/sections/Proprietor';
-import { Pillars } from '@/components/sections/Pillars';
-import { Partners } from '@/components/sections/Partners';
-import { ContactForm } from '@/components/sections/ContactForm';
+import {
+  HomeHero,
+  HomePillars,
+  HomeProprietor,
+  HomeAdvantage,
+  HomeWorkflow,
+  HomePartners,
+  HomeTestimonials,
+  HomeCTA,
+} from '@/components/home';
 
 /**
- * Home Page Component:
- * Composes sections corresponding exactly to https://rngconsultancy.in/
- * while preserving the modern styling, theme, animations, and typography.
+ * Home Page:
+ * Composed using dedicated modular components from `@/components/home`.
+ * Fully responsive for desktop and mobile viewports matching design specifications.
  */
 export const Home: React.FC = () => {
   return (
-    <main className="w-full overflow-x-hidden">
+    <div className="w-full overflow-x-hidden">
       {/* 1. Hero Section */}
-      <Hero />
+      <HomeHero />
 
-      {/* 2. About R&G Section */}
-      <About />
+      {/* 2. Enterprise Practice Areas */}
+      <HomePillars />
 
-      {/* 3. Meet the Proprietor (Founder) Section */}
-      <Proprietor />
+      {/* 3. Leadership Quote */}
+      <HomeProprietor />
 
-      {/* 4. Our Service Pillars */}
-      <Pillars />
+      {/* 4. The R&G Advantage */}
+      <HomeAdvantage />
 
-      {/* 5. Trusted Partnerships */}
-      <Partners />
+      {/* 5. How We Work */}
+      <HomeWorkflow />
 
-      {/* 6. Let's Connect (Contact Form) */}
-      <ContactForm />
-    </main>
+      {/* 6. Strategic Delivery Partners */}
+      <HomePartners />
+
+      {/* 7. Verified Client Perspectives */}
+      <HomeTestimonials />
+
+      {/* 8. Ready to Accelerate Your Enterprise Growth */}
+      <HomeCTA />
+    </div>
   );
 };
+
+export default Home;

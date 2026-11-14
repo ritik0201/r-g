@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -6,12 +7,14 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   size?: 'sm' | 'md' | 'lg';
   asChild?: boolean;
   href?: string;
+  to?: string;
   icon?: React.ReactNode;
   iconPosition?: 'left' | 'right';
 }
 
 /**
  * Reusable variant-driven Button component styled with theme tokens.
+ * Supports standard button, external <a> links with `href`, and SPA navigation with `to`.
  */
 export const Button: React.FC<ButtonProps> = ({
   children,
@@ -19,6 +22,7 @@ export const Button: React.FC<ButtonProps> = ({
   size = 'md',
   className,
   href,
+  to,
   icon,
   iconPosition = 'right',
   ...props
@@ -49,9 +53,17 @@ export const Button: React.FC<ButtonProps> = ({
     </>
   );
 
+  if (to) {
+    return (
+      <Link to={to} className={combinedClass} onClick={props.onClick as any}>
+        {content}
+      </Link>
+    );
+  }
+
   if (href) {
     return (
-      <a href={href} className={combinedClass}>
+      <a href={href} className={combinedClass} onClick={props.onClick as any}>
         {content}
       </a>
     );

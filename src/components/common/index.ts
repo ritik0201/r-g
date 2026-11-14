@@ -5,3 +5,4 @@ export * from './SectionHeading';
 export * from './Container';
 export * from './Section';
 export * from './Reveal';
+export * from './BrandLogo';

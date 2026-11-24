@@ -23,7 +23,7 @@ export const HomeProprietor: React.FC = () => {
           </div>
 
           {/* Master Leadership Quote */}
-          <blockquote className="font-heading italic font-bold text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] text-primary leading-snug sm:leading-relaxed px-2 mb-6 sm:mb-8">
+          <blockquote className="font-heading italic font-bold text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] text-primary leading-snug sm:leading-relaxed text-center px-2 mb-6 sm:mb-8">
             &ldquo;Sustainable enterprise growth requires synchronization: technology without
             skilled hands stalls, and talent without architectural vision drifts.&rdquo;
           </blockquote>

@@ -61,17 +61,17 @@ const workflowSteps = [
 ];
 
 /**
- * The R&G Advantage & How We Work (Side-by-side Laptop View Component):
- * Replicates exact Figma desktop/laptop view:
+ * The R&G Advantage & How We Work (Side-by-side Section):
+ * Matches exact Figma image (media_1795542254353_a5df53e1.png):
  * - Left: "OPERATING ARCHITECTURE" -> "The R&G Advantage" -> 4 icon-based cards
  * - Right: "STRUCTURED DELIVERY" -> "How We Work" -> 4 numbered milestone cards
- * Stacks gracefully and cleanly on mobile devices.
+ * Side-by-side on desktop, stacking cleanly on mobile.
  */
 export const HomeAdvantageWorkflow: React.FC = () => {
   return (
     <section
       id="advantage"
-      className="py-14 sm:py-20 lg:py-24 bg-[#fbfcfd] border-t border-slate-200/80 relative"
+      className="py-16 sm:py-20 lg:py-28 bg-[#fdfefe] border-t border-slate-200/80 relative"
     >
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 xl:gap-14 items-start">
@@ -86,9 +86,7 @@ export const HomeAdvantageWorkflow: React.FC = () => {
               The R&amp;G Advantage
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm lg:text-[0.95rem] leading-relaxed mb-6 sm:mb-8">
-              We reject disconnected consulting models where technology advisors propose unstaffed
-              theoretical roadmaps. Our engagement framework guarantees accountable ownership from
-              strategy through daily execution.
+              We reject disconnected consulting models where technology advisors propose unstaffed theoretical roadmaps. Our engagement framework guarantees accountable ownership from strategy through daily execution.
             </p>
 
             {/* 4 Advantage Cards Stacked */}
@@ -99,8 +97,9 @@ export const HomeAdvantageWorkflow: React.FC = () => {
                 return (
                   <div
                     key={item.title}
-                    className="p-4 sm:p-5 bg-white border border-slate-200/90 shadow-2xs hover:shadow-xs rounded-none transition-all flex items-start gap-3.5 sm:gap-4"
+                    className="p-4 sm:p-5 bg-white border border-slate-200/90 shadow-2xs hover:shadow-xs rounded-none transition-all flex items-start gap-3.5"
                   >
+                    {/* Dark Navy Square Icon Container */}
                     <div className="w-9 h-9 rounded-none bg-[#0c192c] text-[#caa264] flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
                       <Icon className="w-4 h-4" />
                     </div>
@@ -129,37 +128,39 @@ export const HomeAdvantageWorkflow: React.FC = () => {
               How We Work
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm lg:text-[0.95rem] leading-relaxed mb-6 sm:mb-8">
-              Our sequential engagement methodology mitigates risk, accelerates deployment, and
-              ensures complete institutional knowledge retention.
+              Our sequential engagement methodology mitigates risk, accelerates deployment, and ensures complete institutional knowledge retention.
             </p>
 
-            {/* 4 Methodology Milestone Cards Stacked */}
+            {/* 4 Methodology Steps Stacked */}
             <div className="space-y-3.5 sm:space-y-4">
-              {workflowSteps.map((step) => (
-                <div
-                  key={step.step}
-                  className="p-4 sm:p-5 bg-white border border-slate-200/90 shadow-2xs hover:shadow-xs rounded-none transition-all"
-                >
-                  {/* Header Row: Step Number + Title on Left, Milestone Badge on Right */}
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-2 pb-1.5 border-b border-slate-100">
-                    <div className="flex items-baseline gap-2">
-                      <span className="font-mono font-bold text-base sm:text-lg text-[#caa264]">
-                        {step.step}
+              {workflowSteps.map((step) => {
+                return (
+                  <div
+                    key={step.step}
+                    className="p-4 sm:p-5 bg-white border border-slate-200/90 shadow-2xs hover:shadow-xs rounded-none transition-all"
+                  >
+                    {/* Header Row: Step Number, Title, and Milestone Badge */}
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2 pb-1.5 border-b border-slate-100">
+                      <div className="flex items-center gap-2.5">
+                        <span className="font-mono font-bold text-base text-[#caa264]">
+                          {step.step}
+                        </span>
+                        <h3 className="font-heading font-bold text-sm sm:text-base text-primary">
+                          {step.title}
+                        </h3>
+                      </div>
+                      <span className="text-[10px] font-mono font-bold text-sky-800 bg-sky-50 border border-sky-200/60 px-2 py-0.5 rounded-none uppercase tracking-wider">
+                        {step.milestone}
                       </span>
-                      <h3 className="font-heading font-bold text-sm sm:text-base text-primary">
-                        {step.title}
-                      </h3>
                     </div>
-                    <span className="text-[10px] font-mono font-bold text-sky-800 bg-sky-50 border border-sky-200/60 px-2 py-0.5 rounded-none uppercase tracking-wider">
-                      {step.milestone}
-                    </span>
-                  </div>
 
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mt-1.5">
-                    {step.description}
-                  </p>
-                </div>
-              ))}
+                    {/* Step Description */}
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mt-1.5">
+                      {step.description}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

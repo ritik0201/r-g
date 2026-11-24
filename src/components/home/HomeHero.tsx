@@ -1,13 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Building2 } from 'lucide-react';
 import { Container } from '@/components/common/Container';
 import { fadeUpVariant } from '@/lib/motion';
 
 /**
  * Home Hero Component:
- * Matching exact mobile screenshot flow (Eyebrow -> Heading -> Description -> Side-by-Side CTAs -> Image -> 3 Metrics)
- * while preserving full desktop 2-column single-screen composition.
+ * Matches exact Figma image specifications:
+ * - Eyebrow with gold dash: "— CONSULTING & ADVISORY • EST. 2023"
+ * - Master headline: "Technology. / Talent. / Growth." (italic, gold)
+ * - Description: "Aligning technology and talent with business growth. Strategic advisory and disciplined execution for expanding enterprises across Mumbai, Thane, and beyond."
+ * - Dual CTAs: "Our Services →" and "Talk to Us"
+ * - Metrics Card: 35+ YEARS ADVISORY LEADERSHIP | MMR THANE & MUMBAI CORE HUB | 100% END-TO-END GOVERNANCE
+ * - Right: Boardroom photo with Taj skyline and bottom INSTITUTIONAL RIGOR badge
  */
 export const HomeHero: React.FC = () => {
   return (
@@ -17,132 +22,114 @@ export const HomeHero: React.FC = () => {
     >
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center">
-          {/* Left Column (Desktop) / Top Flow (Mobile) */}
+          {/* Left Column: Copy, CTAs, and Metrics Card (7 cols) */}
           <motion.div
             variants={fadeUpVariant}
             initial="hidden"
             animate="visible"
             className="lg:col-span-7 flex flex-col items-start z-10 w-full"
           >
-            {/* Eyebrow Pill matching exact mobile screenshot */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-sky-50 text-sky-900 border border-sky-200/80 rounded-none text-[11px] sm:text-xs font-mono font-bold tracking-wider uppercase mb-3 sm:mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#caa264]" />
-              <span>CONSULTING &amp; ADVISORY • EST. 2023</span>
+            {/* Eyebrow with gold dash */}
+            <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <span className="w-5 sm:w-6 h-0.5 bg-[#caa264] rounded-full shrink-0" aria-hidden="true" />
+              <span className="text-[11px] sm:text-xs font-mono font-bold tracking-wider text-[#caa264] uppercase">
+                CONSULTING &amp; ADVISORY • EST. 2023
+              </span>
             </div>
 
-            {/* Headline matching exact mobile breakpoint */}
-            <h1 className="font-heading font-black tracking-tight leading-[1.08] mb-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary">
-              Technology. Talent.
+            {/* Stacked Master Headline */}
+            <h1 className="font-heading font-black tracking-tight leading-[1.08] mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] text-primary">
+              Technology.
+              <br />
+              Talent.
               <br />
               <span className="italic font-normal text-gold-500 font-heading">
                 Growth.
               </span>
             </h1>
 
-            {/* Description matching exact text */}
-            <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed max-w-lg mb-4 sm:mb-6">
-              Aligning technology and talent with business growth. Strategic advisory and disciplined
-              execution for expanding enterprises across Mumbai and beyond.
+            {/* Subhead Description */}
+            <p className="text-slate-600 text-xs sm:text-sm md:text-base lg:text-[1rem] leading-relaxed max-w-lg mb-6 sm:mb-8">
+              Aligning technology and talent with business growth. Strategic advisory and disciplined execution for expanding enterprises across Mumbai, Thane, and beyond.
             </p>
 
-            {/* Dual CTAs side-by-side on mobile and desktop */}
-            <div className="grid grid-cols-2 gap-3 w-full sm:w-auto sm:flex sm:flex-row items-center mb-6 lg:mb-8">
+            {/* Dual CTAs */}
+            <div className="flex flex-row items-center gap-3 sm:gap-4 mb-6 sm:mb-8 w-full sm:w-auto">
               <a
-                href="#services"
-                className="inline-flex items-center justify-center gap-1.5 bg-[#0c192c] hover:bg-navy-900 text-white font-semibold px-4 py-3 sm:px-6 rounded-none text-xs sm:text-sm transition-all shadow-sm text-center"
+                href="/services"
+                className="inline-flex items-center justify-center gap-2 bg-[#0c192c] hover:bg-navy-900 text-white font-semibold px-5 py-3 sm:px-6 sm:py-3.5 rounded-none text-xs sm:text-sm shadow-sm transition-all"
               >
                 <span>Our Services</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-4 h-4 ml-0.5" />
               </a>
 
               <a
                 href="/contact"
-                className="inline-flex items-center justify-center bg-white hover:bg-slate-50 text-slate-800 font-semibold px-4 py-3 sm:px-6 rounded-none text-xs sm:text-sm border border-slate-200 transition-all text-center"
+                className="inline-flex items-center justify-center bg-white hover:bg-slate-50 text-slate-800 font-semibold px-5 py-3 sm:px-6 sm:py-3.5 rounded-none text-xs sm:text-sm border border-slate-300 shadow-2xs transition-all"
               >
                 Talk to Us
               </a>
             </div>
 
-            {/* Desktop Metrics Strip (hidden on mobile, shown on lg screens) */}
-            <div className="hidden lg:grid grid-cols-3 bg-white border border-slate-200/90 shadow-2xs mt-4 w-full max-w-lg">
-              <div className="p-4 sm:p-5 flex flex-col justify-center">
+            {/* 3 Metrics Strip Card matching exact image */}
+            <div className="grid grid-cols-3 bg-white border border-slate-200/90 shadow-sm p-4 sm:p-5 w-full max-w-xl rounded-none">
+              <div className="flex flex-col">
                 <span className="font-heading font-black text-2xl sm:text-3xl text-primary leading-none">
                   35+
                 </span>
-                <span className="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider mt-1.5">
-                  Years Leadership
+                <span className="text-[10px] sm:text-[11px] font-mono font-bold text-slate-500 uppercase tracking-wider mt-1.5 leading-snug">
+                  YEARS ADVISORY LEADERSHIP
                 </span>
               </div>
-              <div className="p-4 sm:p-5 flex flex-col justify-center bg-sky-50/70 border-x border-slate-100 text-center">
+              <div className="flex flex-col border-x border-slate-100 px-3 sm:px-4">
                 <span className="font-heading font-black text-2xl sm:text-3xl text-primary leading-none">
-                  Thane
+                  MMR
                 </span>
-                <span className="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider mt-1.5">
-                  &amp; Mumbai Hub
+                <span className="text-[10px] sm:text-[11px] font-mono font-bold text-slate-500 uppercase tracking-wider mt-1.5 leading-snug">
+                  THANE &amp; MUMBAI CORE HUB
                 </span>
               </div>
-              <div className="p-4 sm:p-5 flex flex-col justify-center text-right sm:text-left">
+              <div className="flex flex-col pl-3 sm:pl-4">
                 <span className="font-heading font-black text-2xl sm:text-3xl text-primary leading-none">
                   100%
                 </span>
-                <span className="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider mt-1.5">
-                  End-to-End
+                <span className="text-[10px] sm:text-[11px] font-mono font-bold text-slate-500 uppercase tracking-wider mt-1.5 leading-snug">
+                  END-TO-END GOVERNANCE
                 </span>
               </div>
             </div>
           </motion.div>
 
-          {/* Right Column: Hero Image with Overlay Badge & Mobile Metrics Strip */}
+          {/* Right Column: Boardroom Meeting Photo with INSTITUTIONAL RIGOR badge (5 cols) */}
           <motion.div
             variants={fadeUpVariant}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-5 flex flex-col items-center w-full"
+            className="lg:col-span-5 relative w-full mt-6 lg:mt-0 flex justify-center"
           >
-            {/* Boardroom Meeting Photography */}
-            <div className="relative rounded-none overflow-hidden shadow-xl border border-slate-300 w-full aspect-[16/10] sm:aspect-[4/3] bg-slate-100">
-              <img
-                src="/images/hero-meeting.jpg"
-                alt="R&G Strategic Advisory Boardroom Meeting"
-                className="w-full h-full object-cover rounded-none"
-                loading="eager"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-transparent pointer-events-none" />
+            <div className="relative w-full max-w-md lg:max-w-[460px]">
+              <div className="relative rounded-none overflow-hidden shadow-2xl border border-slate-300 aspect-[4/4.8] max-h-[440px] sm:max-h-[480px] lg:max-h-[520px] bg-slate-100">
+                <img
+                  src="/images/hero-meeting.jpg"
+                  alt="R&G Strategic Executive Consulting Meeting"
+                  className="w-full h-full object-cover object-center rounded-none"
+                  loading="eager"
+                />
 
-              {/* Direct Leadership Engagement Overlay Badge */}
-              <div className="absolute bottom-0 inset-x-0 bg-[#0c192c]/95 backdrop-blur-xs p-2.5 sm:p-3 border-t border-navy-800 text-white flex items-center gap-2">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#caa264] shrink-0" />
-                <span className="text-[11px] font-medium text-slate-200 truncate">
-                  Direct leadership engagement by Sanjay Makhija
-                </span>
-              </div>
-            </div>
-
-            {/* Mobile Metrics Strip directly underneath image matching mobile screenshot */}
-            <div className="grid lg:hidden grid-cols-3 bg-white border border-slate-200/90 shadow-xs mt-3.5 w-full">
-              <div className="p-3 sm:p-4 flex flex-col justify-center text-center">
-                <span className="font-heading font-black text-xl sm:text-2xl text-primary leading-none">
-                  35+
-                </span>
-                <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-wider mt-1">
-                  Years Leadership
-                </span>
-              </div>
-              <div className="p-3 sm:p-4 flex flex-col justify-center bg-sky-50/70 border-x border-slate-100 text-center">
-                <span className="font-heading font-black text-lg sm:text-xl text-primary leading-none">
-                  Thane
-                </span>
-                <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-wider mt-1">
-                  &amp; Mumbai Hub
-                </span>
-              </div>
-              <div className="p-3 sm:p-4 flex flex-col justify-center text-center">
-                <span className="font-heading font-black text-xl sm:text-2xl text-primary leading-none">
-                  100%
-                </span>
-                <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-wider mt-1">
-                  End-to-End
-                </span>
+                {/* INSTITUTIONAL RIGOR Overlay Card at bottom of photo */}
+                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md border border-slate-200 p-3 sm:p-3.5 shadow-lg flex items-center gap-3 rounded-none">
+                  <div className="w-9 h-9 rounded-none bg-[#0c192c] text-[#caa264] flex items-center justify-center shrink-0">
+                    <Building2 className="w-5 h-5" />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-primary block leading-none">
+                      INSTITUTIONAL RIGOR
+                    </span>
+                    <p className="text-[11px] sm:text-xs text-slate-600 leading-snug mt-1 truncate sm:whitespace-normal">
+                      Bespoke interventions engineered for enterprise scale.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>

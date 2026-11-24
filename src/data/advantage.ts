@@ -1,10 +1,10 @@
 import type { AdvantageItem, WorkflowStepItem } from '@/types';
 
 export const advantageHeading = {
-  eyebrow: 'EXECUTION-FIRST ARCHITECTURE',
+  eyebrow: 'OPERATING ARCHITECTURE',
   heading: 'The R&G Advantage',
   description:
-    'We reject disconnected consultancy models. We embed experienced senior advisors directly into customer context, backing each engagement with execution guarantees across talent and technology.',
+    'We reject disconnected consulting models where technology advisors propose unstaffed theoretical roadmaps. Our engagement framework guarantees accountable ownership from strategy through daily execution.',
 };
 
 export const advantageItems: AdvantageItem[] = [
@@ -12,37 +12,37 @@ export const advantageItems: AdvantageItem[] = [
     id: 'outcome-driven',
     title: 'Outcome-Driven Approach',
     description:
-      'Scope and milestones defined by tangible commercial outcomes and ROI benchmarks rather than abstract billable hours.',
+      'Key performance indicators tied directly to operational benchmarks, avoiding billing on abstract vanity timelines.',
     iconName: 'Target',
   },
   {
     id: 'single-contact',
     title: 'Single Point of Contact',
     description:
-      'A designated senior practitioner manages your account across all four pillars, eliminating cross-vendor friction and finger-pointing.',
+      'A dedicated Director-level Engagement Lead coordinates software, recruitment, and architecture workflows simultaneously.',
     iconName: 'UserCheck',
   },
   {
     id: 'delivery-partners',
     title: 'Trusted Delivery Partners',
     description:
-      'Tight synergy with leading institutions in specialized IT and HR execution ensure superior delivery speed and reliability.',
+      'Tight syndication with vetted leaders in specialized infrastructure, executive recruitment, and technical training.',
     iconName: 'ShieldCheck',
   },
   {
     id: 'success-metrics',
     title: 'Clear Success Metrics',
     description:
-      'Transparent review cycles, defined SLA metrics, and open progress tracking for full operational accountability.',
+      'Transparent milestone deliverables with SLA guarantees, executive dashboards, and bi-weekly review gates.',
     iconName: 'BarChart3',
   },
 ];
 
 export const workflowHeading = {
-  eyebrow: 'AGILE CONSULTING FRAMEWORK',
+  eyebrow: 'STRUCTURED DELIVERY',
   heading: 'How We Work',
   description:
-    'Our 4-stage engagement methodology minimizes risk, accelerates deployment, and ensures complete institutional knowledge retention.',
+    'Our sequential engagement methodology mitigates risk, accelerates deployment, and ensures complete institutional knowledge retention.',
 };
 
 export const workflowSteps: WorkflowStepItem[] = [
@@ -51,27 +51,27 @@ export const workflowSteps: WorkflowStepItem[] = [
     title: 'Discover & Diagnose',
     milestone: 'MILESTONE: DISCOVERY AUDIT',
     description:
-      'Comprehensive assessment of current technology landscape and talent structure to identify high-impact friction points and strategic opportunities.',
+      'In-depth analysis of existing tech stacks, organizational bottlenecks, recruitment velocity, and enterprise targets across key stakeholders.',
   },
   {
     step: '02',
     title: 'Plan & Architect',
-    milestone: 'MILESTONE: BLUEPRINT DELIVERY',
+    milestone: 'MILESTONE: BLUEPRINT SIGNOFF',
     description:
-      'Development of detailed roadmap, architecture blueprint, budget forecasts, talent requirements, and partner engagement scope.',
+      'Development of the comprehensive technical architecture, resource requisition matrices, vendor parameters, and delivery roadmaps.',
   },
   {
     step: '03',
     title: 'Deliver & Staff',
-    milestone: 'MILESTONE: FULL LIFECYCLE ONBOARDING',
+    milestone: 'MILESTONE: GO-LIVE & ONBOARD',
     description:
-      'Synchronized execution across custom software delivery, corporate IT training programs, and targeted talent acquisition.',
+      'Agile execution sprints for custom software, active executive candidate placement, integration testing, and team onboarding.',
   },
   {
     step: '04',
     title: 'Support & Elevate',
-    milestone: 'MILESTONE: PERFORMANCE AUDIT',
+    milestone: 'MILESTONE: SLA GOVERNANCE',
     description:
-      'Post-implementation reviews, ongoing governance, SLA audits, performance benchmarking, and transition to internal capability.',
+      'Corporate workforce training modules, continuous infrastructure monitoring, executive reviews, and iterative capability enhancement.',
   },
 ];

@@ -4,12 +4,12 @@ import { siteConfig } from '@/data/site';
 
 /**
  * Immediate Executive Priority Consultation Card:
- * Dark Navy card with Book Direct Call action.
+ * Deep Navy card with Book Direct Call action matching exact Figma design.
  */
 export const ContactQuickConsult: React.FC = () => {
   return (
-    <div className="bg-primary text-white rounded-none p-5 sm:p-7 shadow-lg relative overflow-hidden border border-navy-800">
-      <div className="flex items-center gap-1.5 text-accent text-[10px] sm:text-[11px] font-mono font-bold tracking-widest uppercase mb-2">
+    <div className="bg-[#0e1e38] text-white rounded-none p-6 sm:p-7 shadow-md border border-navy-900">
+      <div className="flex items-center gap-1.5 text-[#caa264] text-[11px] font-mono font-bold tracking-widest uppercase mb-2">
         <Zap className="w-3.5 h-3.5" />
         <span>EXECUTIVE PRIORITY</span>
       </div>
@@ -24,10 +24,10 @@ export const ContactQuickConsult: React.FC = () => {
 
       <a
         href={`tel:${siteConfig.phone.replace(/[^0-9+]/g, '')}`}
-        className="w-full bg-gradient-to-r from-white via-slate-100 to-slate-200 hover:from-white hover:to-white text-primary font-heading font-bold text-xs sm:text-sm px-4 py-2.5 rounded-none flex items-center justify-between shadow-xs transition-all group"
+        className="w-full bg-white hover:bg-slate-100 text-slate-950 font-heading font-bold text-xs sm:text-sm px-4 py-3 rounded-none flex items-center justify-between shadow-2xs transition-all group"
       >
         <span>Book Direct Call</span>
-        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        <ArrowRight className="w-4 h-4 text-slate-600 group-hover:translate-x-1 transition-transform" />
       </a>
     </div>
   );

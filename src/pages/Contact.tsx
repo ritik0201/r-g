@@ -21,7 +21,7 @@ export const ContactPage: React.FC = () => {
       <ContactHero />
 
       {/* 2. Main Content Grid */}
-      <section className="py-10 sm:py-16 bg-[#f8fafc]">
+      <section className="py-10 sm:py-16 bg-[#f4f7fb]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-start">
             {/* Left: Advisory Inquiry Form (7 cols) */}

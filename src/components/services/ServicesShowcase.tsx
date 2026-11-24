@@ -1,34 +1,28 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, ShieldCheck, Users, Terminal, GraduationCap } from 'lucide-react';
 import { Container } from '@/components/common/Container';
-import { Button } from '@/components/common/Button';
-import { fadeUpVariant } from '@/lib/motion';
 
 /**
  * 4 Practice Showcases Component for Services Page:
- * Practice 01 (IT Advisory), 02 (HR Staffing), 03 (Software Projects), 04 (Corporate Training).
- * All images feature sharp edges (rounded-none).
+ * Practice 01 (IT Advisory), 02 (HR Staffing), 03 (Software Projects), 04 (Corporate Training)
+ * matching exact Figma layout, copy, badges, delivery model boxes, and sharp edges.
  */
 export const ServicesShowcase: React.FC = () => {
   return (
-    <div className="divide-y divide-slate-200/80">
-      {/* Practice 01: Strategic IT Consultancy & Advisory */}
-      <section
-        id="it-consultancy"
-        className="py-14 sm:py-20 lg:py-24 bg-white scroll-mt-24"
-      >
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-            {/* Image (Sharp Edges) */}
-            <motion.div
-              variants={fadeUpVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.05 }}
-              className="lg:col-span-6 relative"
-            >
-              <div className="relative rounded-none overflow-hidden shadow-xl border border-slate-300 aspect-[4/3] bg-slate-100">
+    <div className="py-10 sm:py-16 bg-[#f4f7fb]">
+      <Container>
+        {/* =========================================================================
+            PRACTICE 01: Strategic IT Consultancy & Advisory
+           ========================================================================= */}
+        <section
+          id="it-consultancy"
+          className="bg-white rounded-none border border-slate-200/90 shadow-2xs p-6 sm:p-8 lg:p-10 mb-8 sm:mb-12 scroll-mt-28"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Image (Left) */}
+            <div className="lg:col-span-6 relative">
+              <div className="relative rounded-none overflow-hidden shadow-md border border-slate-300 aspect-[4/3] bg-slate-100">
                 <img
                   src="/images/service-it-consultancy.jpg"
                   alt="Strategic IT Consultancy & Architecture Review"
@@ -36,238 +30,225 @@ export const ServicesShowcase: React.FC = () => {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent pointer-events-none" />
-                <span className="absolute bottom-4 left-4 text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-1 rounded-none bg-navy-950/90 text-gold-300 border border-navy-800">
-                  PRACTICE 01 • ARCHITECTURE &amp; AUDIT
+                <span className="absolute bottom-3 left-3 text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-1 rounded-none bg-[#0c192c]/95 text-white border border-white/10 shadow-sm">
+                  PRACTICE 01 // ARCHITECTURE &amp; CLOUD
                 </span>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Copy */}
-            <motion.div
-              variants={fadeUpVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.05 }}
-              className="lg:col-span-6 flex flex-col items-start"
-            >
-              <span className="eyebrow text-xs font-bold text-accent tracking-widest uppercase font-mono mb-2 block">
-                01 • ENTERPRISE ADVISORY
-              </span>
-              <h2 className="heading-section text-primary text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-3">
+            {/* Content (Right) */}
+            <div className="lg:col-span-6 flex flex-col items-start">
+              <div className="flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-widest text-[#caa264] mb-2">
+                <span>01</span>
+                <span className="text-slate-400">•</span>
+                <span>ENTERPRISE ADVISORY</span>
+              </div>
+
+              <h2 className="font-heading text-primary text-2xl sm:text-3xl font-bold tracking-tight mb-3">
                 Strategic IT Consultancy &amp; Advisory
               </h2>
-              <p className="text-slate-600 text-xs sm:text-sm lg:text-base leading-relaxed mb-6">
-                Aligning digital investments with institutional growth objectives. We
-                audit modern systems, overhaul legacy technical debt, and ensure
-                high-conviction modernization mandates that protect organizations against
-                operational risk.
+
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5">
+                Aligning core IT investment with institutional governance. We architect
+                resilient systems, audit legacy technical debt, and establish high-assurance
+                modernization trajectories that insulate organizations against structural risk.
               </p>
 
-              <div className="space-y-3.5 mb-6 w-full">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+              {/* 3 Bullets with gold diamond */}
+              <div className="space-y-3.5 mb-5 w-full">
+                <div className="flex items-start gap-2.5">
+                  <span className="text-[#caa264] text-xs font-bold shrink-0 mt-0.5">✦</span>
                   <div>
-                    <h3 className="font-semibold text-xs sm:text-sm text-primary">
+                    <h3 className="font-bold text-xs sm:text-sm text-primary">
                       Technology Roadmaps
                     </h3>
-                    <p className="text-xs text-slate-500 mt-0.5">
-                      Multi-year architectural execution blueprints aligned with
-                      commercial budgets.
+                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                      Multi-year architectural blueprints mapping digital readiness to revenue
+                      expansion targets.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2.5">
+                  <span className="text-[#caa264] text-xs font-bold shrink-0 mt-0.5">✦</span>
                   <div>
-                    <h3 className="font-semibold text-xs sm:text-sm text-primary">
+                    <h3 className="font-bold text-xs sm:text-sm text-primary">
                       Product &amp; Vendor Evaluation
                     </h3>
-                    <p className="text-xs text-slate-500 mt-0.5">
-                      Objective assessment of enterprise software packages and third-party
-                      vendor bids.
+                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                      Objective procurement audits, RFP development, and neutral technical
+                      viability assessments.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2.5">
+                  <span className="text-[#caa264] text-xs font-bold shrink-0 mt-0.5">✦</span>
                   <div>
-                    <h3 className="font-semibold text-xs sm:text-sm text-primary">
+                    <h3 className="font-bold text-xs sm:text-sm text-primary">
                       Secure System Integrations
                     </h3>
-                    <p className="text-xs text-slate-500 mt-0.5">
-                      Enterprise-grade integration architectures across ERP, CRM, and
-                      bespoke platforms.
+                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                      Enterprise API orchestrations adhering to strict SOC2 and ISO compliance
+                      structures.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Delivery Model Badge */}
-              <div className="w-full p-3 rounded-none bg-slate-50 border border-slate-200 flex items-center gap-3 mb-6">
-                <ShieldCheck className="w-4 h-4 text-primary shrink-0" />
-                <div className="text-xs">
-                  <span className="font-bold text-primary uppercase text-[10px] tracking-wider block font-mono">
+              {/* Delivery Model Callout Box */}
+              <div className="w-full bg-[#f0f6fc] border border-blue-100 rounded-none p-3.5 sm:p-4 flex items-start gap-3 mb-6">
+                <div className="w-7 h-7 rounded-none bg-blue-100/70 text-[#0c192c] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                  <ShieldCheck className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 block">
                     DELIVERY MODEL
                   </span>
-                  <span className="text-slate-600">
-                    Led directly by Senior Advisory Board with deep enterprise client
-                    governance.
-                  </span>
+                  <p className="text-xs text-slate-700 mt-0.5 leading-snug">
+                    Led directly by Senior Advisory Practice directors and principal architects.
+                  </p>
                 </div>
               </div>
 
-              <Button
+              {/* CTA Button */}
+              <Link
                 to="/contact"
-                variant="primary"
-                size="md"
-                className="w-full sm:w-auto justify-center rounded-none shadow-sm text-xs sm:text-sm"
-                icon={<ArrowRight className="w-4 h-4 ml-1" />}
-                iconPosition="right"
+                className="inline-flex items-center gap-2 bg-[#0c192c] hover:bg-navy-900 text-white font-semibold px-5 py-3 rounded-none text-xs sm:text-sm transition-all shadow-2xs"
               >
-                Request a Proposal for IT Consultancy
-              </Button>
-            </motion.div>
+                <span>Request a Proposal for IT Consultancy</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
-        </Container>
-      </section>
+        </section>
 
-      {/* Practice 02: Executive HR, Talent & Staffing */}
-      <section
-        id="hr-staffing"
-        className="py-14 sm:py-20 lg:py-24 bg-[#f8fafc]/70 scroll-mt-24"
-      >
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-            {/* Copy */}
-            <motion.div
-              variants={fadeUpVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.05 }}
-              className="lg:col-span-6 flex flex-col items-start order-2 lg:order-1"
-            >
-              <span className="eyebrow text-xs font-bold text-accent tracking-widest uppercase font-mono mb-2 block">
-                02 • HUMAN CAPITAL
-              </span>
-              <h2 className="heading-section text-primary text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-3">
+        {/* =========================================================================
+            PRACTICE 02: Executive HR, Talent & Staffing
+           ========================================================================= */}
+        <section
+          id="hr-staffing"
+          className="bg-white rounded-none border border-slate-200/90 shadow-2xs p-6 sm:p-8 lg:p-10 mb-8 sm:mb-12 scroll-mt-28"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Content (Left) */}
+            <div className="lg:col-span-6 flex flex-col items-start order-2 lg:order-1">
+              <div className="flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-widest text-[#caa264] mb-2">
+                <span>02</span>
+                <span className="text-slate-400">•</span>
+                <span>HUMAN CAPITAL</span>
+              </div>
+
+              <h2 className="font-heading text-primary text-2xl sm:text-3xl font-bold tracking-tight mb-3">
                 Executive HR, Talent &amp; Staffing
               </h2>
-              <p className="text-slate-600 text-xs sm:text-sm lg:text-base leading-relaxed mb-6">
-                Bridging critical capability gaps with vetted, high-retention talent. Our
-                human capital advisory operates alongside technology managers to recruit
-                executives, lead specialized engineering squads, and scale
-                cross-functional teams.
+
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5">
+                Bridging senior capability gaps with vetted, tier-one leadership. Our human
+                capital division delivers elite technology managers, C-suite executives, and
+                specialized functional teams curated for cultural fit and institutional impact.
               </p>
 
-              <div className="space-y-3.5 mb-6 w-full">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+              {/* 3 Bullets with gold diamond */}
+              <div className="space-y-3.5 mb-5 w-full">
+                <div className="flex items-start gap-2.5">
+                  <span className="text-[#caa264] text-xs font-bold shrink-0 mt-0.5">✦</span>
                   <div>
-                    <h3 className="font-semibold text-xs sm:text-sm text-primary">
+   
+                    <h3 className="font-bold text-xs sm:text-sm text-primary">
                       Talent Acquisition
                     </h3>
-                    <p className="text-xs text-slate-500 mt-0.5">
-                      Rapid sourcing pipelines for niche technology, operations, and
-                      leadership roles.
+                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                      Rapid scaling pipelines for high-growth tech firms requiring mid-to-senior
+                      software talent.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2.5">
+                  <span className="text-[#caa264] text-xs font-bold shrink-0 mt-0.5">✦</span>
                   <div>
-                    <h3 className="font-semibold text-xs sm:text-sm text-primary">
+                    <h3 className="font-bold text-xs sm:text-sm text-primary">
                       Executive Search
                     </h3>
-                    <p className="text-xs text-slate-500 mt-0.5">
-                      Confidential executive-level placement managed by senior advisory
-                      leadership.
+                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                      Confidential boardroom and VP-level mandates managed by seasoned industry
+                      specialists.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2.5">
+                  <span className="text-[#caa264] text-xs font-bold shrink-0 mt-0.5">✦</span>
                   <div>
-                    <h3 className="font-semibold text-xs sm:text-sm text-primary">
+                    <h3 className="font-bold text-xs sm:text-sm text-primary">
                       Workforce Solutions
                     </h3>
-                    <p className="text-xs text-slate-500 mt-0.5">
-                      Flexible contract-to-hire and managed team staffing for peak demand
-                      periods.
+                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                      Contractual augmentation and managed engineering pods for time-sensitive
+                      milestones.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Delivery Model Badge */}
-              <div className="w-full p-3 rounded-none bg-white border border-slate-200 flex items-center gap-3 mb-6 shadow-2xs">
-                <ShieldCheck className="w-4 h-4 text-primary shrink-0" />
-                <div className="text-xs">
-                  <span className="font-bold text-primary uppercase text-[10px] tracking-wider block font-mono">
+              {/* Delivery Model Callout Box */}
+              <div className="w-full bg-[#f0f6fc] border border-blue-100 rounded-none p-3.5 sm:p-4 flex items-start gap-3 mb-6">
+                <div className="w-7 h-7 rounded-none bg-blue-100/70 text-[#0c192c] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                  <Users className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 block">
                     DELIVERY MODEL
                   </span>
-                  <span className="text-slate-600">
-                    Powered in strategic partnership with Talent Corner HR Services.
-                  </span>
+                  <p className="text-xs text-slate-700 mt-0.5 leading-snug">
+                    Powered in strategic partnership with{' '}
+                    <strong className="font-semibold text-slate-900">
+                      Talent Corner HR Services.
+                    </strong>
+                  </p>
                 </div>
               </div>
 
-              <Button
+              {/* CTA Button */}
+              <Link
                 to="/contact"
-                variant="primary"
-                size="md"
-                className="w-full sm:w-auto justify-center rounded-none shadow-sm text-xs sm:text-sm"
-                icon={<ArrowRight className="w-4 h-4 ml-1" />}
-                iconPosition="right"
+                className="inline-flex items-center gap-2 bg-[#0c192c] hover:bg-navy-900 text-white font-semibold px-5 py-3 rounded-none text-xs sm:text-sm transition-all shadow-2xs"
               >
-                Request a Proposal for HR &amp; Staffing
-              </Button>
-            </motion.div>
+                <span>Request a Proposal for HR &amp; Staffing</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
 
-            {/* Image (Sharp Edges) */}
-            <motion.div
-              variants={fadeUpVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.05 }}
-              className="lg:col-span-6 relative order-1 lg:order-2"
-            >
-              <div className="relative rounded-none overflow-hidden shadow-xl border border-slate-300 aspect-[4/3] bg-slate-100">
+            {/* Image (Right) */}
+            <div className="lg:col-span-6 relative order-1 lg:order-2">
+              <div className="relative rounded-none overflow-hidden shadow-md border border-slate-300 aspect-[4/3] bg-slate-100">
                 <img
                   src="/images/service-hr-staffing.jpg"
-                  alt="Executive HR Staffing & Talent Acquisition"
+                  alt="Executive HR, Talent & Staffing"
                   className="w-full h-full object-cover rounded-none"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent pointer-events-none" />
-                <span className="absolute bottom-4 left-4 text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-1 rounded-none bg-navy-950/90 text-gold-300 border border-navy-800">
-                  PRACTICE 02 • TALENT ACQUISITION
+                <span className="absolute bottom-3 left-3 text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-1 rounded-none bg-[#0c192c]/95 text-white border border-white/10 shadow-sm">
+                  PRACTICE 02 // TALENT ARCHITECTURE
                 </span>
               </div>
-            </motion.div>
+            </div>
           </div>
-        </Container>
-      </section>
+        </section>
 
-      {/* Practice 03: Software Projects & E-Commerce Engineering */}
-      <section
-        id="software-projects"
-        className="py-14 sm:py-20 lg:py-24 bg-white scroll-mt-24"
-      >
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-            {/* Image (Sharp Edges) */}
-            <motion.div
-              variants={fadeUpVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.05 }}
-              className="lg:col-span-6 relative"
-            >
-              <div className="relative rounded-none overflow-hidden shadow-xl border border-slate-300 aspect-[4/3] bg-slate-100">
+        {/* =========================================================================
+            PRACTICE 03: Software Projects & E-Commerce Engineering
+           ========================================================================= */}
+        <section
+          id="software-projects"
+          className="bg-white rounded-none border border-slate-200/90 shadow-2xs p-6 sm:p-8 lg:p-10 mb-8 sm:mb-12 scroll-mt-28"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Image (Left) */}
+            <div className="lg:col-span-6 relative">
+              <div className="relative rounded-none overflow-hidden shadow-md border border-slate-300 aspect-[4/3] bg-slate-100">
                 <img
                   src="/images/service-software.jpg"
                   alt="Software Projects & E-Commerce Engineering"
@@ -275,205 +256,200 @@ export const ServicesShowcase: React.FC = () => {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent pointer-events-none" />
-                <span className="absolute bottom-4 left-4 text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-1 rounded-none bg-navy-950/90 text-gold-300 border border-navy-800">
-                  PRACTICE 03 • SYSTEM ENGINEERING
+                <span className="absolute bottom-3 left-3 text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-1 rounded-none bg-[#0c192c]/95 text-white border border-white/10 shadow-sm">
+                  PRACTICE 03 // SYSTEMS &amp; COMMERCE
                 </span>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Copy */}
-            <motion.div
-              variants={fadeUpVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.05 }}
-              className="lg:col-span-6 flex flex-col items-start"
-            >
-              <span className="eyebrow text-xs font-bold text-accent tracking-widest uppercase font-mono mb-2 block">
-                03 • ENGINEERING EXCELLENCE
-              </span>
-              <h2 className="heading-section text-primary text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-3">
+            {/* Content (Right) */}
+            <div className="lg:col-span-6 flex flex-col items-start">
+              <div className="flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-widest text-[#caa264] mb-2">
+                <span>03</span>
+                <span className="text-slate-400">•</span>
+                <span>ENGINEERING EXCELLENCE</span>
+              </div>
+
+              <h2 className="font-heading text-primary text-2xl sm:text-3xl font-bold tracking-tight mb-3">
                 Software Projects &amp; E-Commerce Engineering
               </h2>
-              <p className="text-slate-600 text-xs sm:text-sm lg:text-base leading-relaxed mb-6">
-                Engineering robust transactional systems capable of handling
-                high-throughput volumes. From enterprise ERP extensions to
-                mission-critical Magento architectures, our execution blend assures
-                technical agility with business continuity.
+
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5">
+                Engineering robust transactional foundations capable of handling high
+                throughput. From custom enterprise ERP extensions to mission-critical
+                Magento implementations, our execution balances architectural purity with
+                business velocity.
               </p>
 
-              <div className="space-y-3.5 mb-6 w-full">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+              {/* 3 Bullets with gold diamond */}
+              <div className="space-y-3.5 mb-5 w-full">
+                <div className="flex items-start gap-2.5">
+                  <span className="text-[#caa264] text-xs font-bold shrink-0 mt-0.5">✦</span>
                   <div>
-                    <h3 className="font-semibold text-xs sm:text-sm text-primary">
+                    <h3 className="font-bold text-xs sm:text-sm text-primary">
                       Magento Enterprise Development
                     </h3>
-                    <p className="text-xs text-slate-500 mt-0.5">
-                      Bespoke omni-channel catalog builds, payment gateways, and complex
-                      ERP/CRM syncs.
+                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                      Bespoke storefront architectures, high-load payment gateways, and
+                      headless B2B platforms.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2.5">
+                  <span className="text-[#caa264] text-xs font-bold shrink-0 mt-0.5">✦</span>
                   <div>
-                    <h3 className="font-semibold text-xs sm:text-sm text-primary">
+                    <h3 className="font-bold text-xs sm:text-sm text-primary">
                       Performance Tuning &amp; Database Optimization
                     </h3>
-                    <p className="text-xs text-slate-500 mt-0.5">
-                      Latency reduction, memory profiling, and PostgreSQL/MySQL cluster
-                      optimization.
+                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                      Latency reduction, Redis query caching, and PostgreSQL/MySQL cluster
+                      replication.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2.5">
+                  <span className="text-[#caa264] text-xs font-bold shrink-0 mt-0.5">✦</span>
                   <div>
-                    <h3 className="font-semibold text-xs sm:text-sm text-primary">
+                    <h3 className="font-bold text-xs sm:text-sm text-primary">
                       API Integrations &amp; Microservices
                     </h3>
-                    <p className="text-xs text-slate-500 mt-0.5">
-                      Clean architecture decoupling monolithic codebases into
-                      fault-tolerant services.
+                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                      Decoupled system topologies enabling friction-free third-party
+                      synchronization and resilience.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Delivery Model Badge */}
-              <div className="w-full p-3 rounded-none bg-slate-50 border border-slate-200 flex items-center gap-3 mb-6">
-                <ShieldCheck className="w-4 h-4 text-primary shrink-0" />
-                <div className="text-xs">
-                  <span className="font-bold text-primary uppercase text-[10px] tracking-wider block font-mono">
+              {/* Delivery Model Callout Box */}
+              <div className="w-full bg-[#f0f6fc] border border-blue-100 rounded-none p-3.5 sm:p-4 flex items-start gap-3 mb-6">
+                <div className="w-7 h-7 rounded-none bg-blue-100/70 text-[#0c192c] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                  <Terminal className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 block">
                     DELIVERY MODEL
                   </span>
-                  <span className="text-slate-600">
-                    Executed in partnership with Mikado Solutions under strict project
+                  <p className="text-xs text-slate-700 mt-0.5 leading-snug">
+                    Executed with certified engineering partners and direct R&amp;G project
                     governance.
-                  </span>
+                  </p>
                 </div>
               </div>
 
-              <Button
+              {/* CTA Button */}
+              <Link
                 to="/contact"
-                variant="primary"
-                size="md"
-                className="w-full sm:w-auto justify-center rounded-none shadow-sm text-xs sm:text-sm"
-                icon={<ArrowRight className="w-4 h-4 ml-1" />}
-                iconPosition="right"
+                className="inline-flex items-center gap-2 bg-[#0c192c] hover:bg-navy-900 text-white font-semibold px-5 py-3 rounded-none text-xs sm:text-sm transition-all shadow-2xs"
               >
-                Request a Proposal for Software Projects
-              </Button>
-            </motion.div>
+                <span>Request a Proposal for Software Projects</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
-        </Container>
-      </section>
+        </section>
 
-      {/* Practice 04: Corporate IT Training & Workforce Upskilling */}
-      <section
-        id="corporate-training"
-        className="py-14 sm:py-20 lg:py-24 bg-[#f8fafc]/70 scroll-mt-24"
-      >
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-            {/* Copy */}
-            <motion.div
-              variants={fadeUpVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.05 }}
-              className="lg:col-span-6 flex flex-col items-start order-2 lg:order-1"
-            >
-              <span className="eyebrow text-xs font-bold text-accent tracking-widest uppercase font-mono mb-2 block">
-                04 • CAPABILITY BUILDING
-              </span>
-              <h2 className="heading-section text-primary text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-3">
+        {/* =========================================================================
+            PRACTICE 04: Corporate IT Training & Workforce Upskilling
+           ========================================================================= */}
+        <section
+          id="corporate-training"
+          className="bg-white rounded-none border border-slate-200/90 shadow-2xs p-6 sm:p-8 lg:p-10 mb-8 sm:mb-12 scroll-mt-28"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Content (Left) */}
+            <div className="lg:col-span-6 flex flex-col items-start order-2 lg:order-1">
+              <div className="flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-widest text-[#caa264] mb-2">
+                <span>04</span>
+                <span className="text-slate-400">•</span>
+                <span>CAPABILITY BUILDING</span>
+              </div>
+
+              <h2 className="font-heading text-primary text-2xl sm:text-3xl font-bold tracking-tight mb-3">
                 Corporate IT Training &amp; Workforce Upskilling
               </h2>
-              <p className="text-slate-600 text-xs sm:text-sm lg:text-base leading-relaxed mb-6">
+
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5">
                 Transforming corporate talent pools into high-output engineering
-                powerhouse units. Our custom cohorts emphasize hands-on architecture
-                problem-solving rather than passive theory.
+                powerhouses. Designed for corporate cohorts, our curricula emphasize
+                hands-on architectural problem-solving rather than passive theory.
               </p>
 
-              <div className="space-y-3.5 mb-6 w-full">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+              {/* 3 Bullets with gold diamond */}
+              <div className="space-y-3.5 mb-5 w-full">
+                <div className="flex items-start gap-2.5">
+                  <span className="text-[#caa264] text-xs font-bold shrink-0 mt-0.5">✦</span>
                   <div>
-                    <h3 className="font-semibold text-xs sm:text-sm text-primary">
+                    <h3 className="font-bold text-xs sm:text-sm text-primary">
                       Java Enterprise Track
                     </h3>
-                    <p className="text-xs text-slate-500 mt-0.5">
-                      Spring Boot microservices, memory management, concurrent pipelines,
-                      and cloud cohorts.
+                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                      Spring Boot microservices, memory profiling, thread management, and
+                      enterprise integration patterns.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2.5">
+                  <span className="text-[#caa264] text-xs font-bold shrink-0 mt-0.5">✦</span>
                   <div>
-                    <h3 className="font-semibold text-xs sm:text-sm text-primary">
+                    <h3 className="font-bold text-xs sm:text-sm text-primary">
                       Python for Business &amp; Data Automation
                     </h3>
-                    <p className="text-xs text-slate-500 mt-0.5">
-                      Automated ETL, workflow orchestration, data pipelines, and internal
-                      tools.
+                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                      Scripting ETL pipelines, automating financial modeling workflows, and
+                      internal tooling APIs.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2.5">
+                  <span className="text-[#caa264] text-xs font-bold shrink-0 mt-0.5">✦</span>
                   <div>
-                    <h3 className="font-semibold text-xs sm:text-sm text-primary">
+                    <h3 className="font-bold text-xs sm:text-sm text-primary">
                       Fullstack Engineering
                     </h3>
-                    <p className="text-xs text-slate-500 mt-0.5">
-                      Modern React/TypeScript frontends with rigorous enterprise
-                      integration standards.
+                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                      Production-ready React, Node.js, and containerized deployment standards
+                      for internal product squads.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Delivery Model Badge */}
-              <div className="w-full p-3 rounded-none bg-white border border-slate-200 flex items-center gap-3 mb-6 shadow-2xs">
-                <ShieldCheck className="w-4 h-4 text-primary shrink-0" />
-                <div className="text-xs">
-                  <span className="font-bold text-primary uppercase text-[10px] tracking-wider block font-mono">
+              {/* Delivery Model Callout Box */}
+              <div className="w-full bg-[#f0f6fc] border border-blue-100 rounded-none p-3.5 sm:p-4 flex items-start gap-3 mb-6">
+                <div className="w-7 h-7 rounded-none bg-blue-100/70 text-[#0c192c] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                  <GraduationCap className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 block">
                     DELIVERY MODEL
                   </span>
-                  <span className="text-slate-600">
-                    Delivered in partnership with Mikado Solutions.
-                  </span>
+                  <p className="text-xs text-slate-700 mt-0.5 leading-snug">
+                    Delivered in partnership with{' '}
+                    <strong className="font-semibold text-slate-900">
+                      Mikado Solutions.
+                    </strong>
+                  </p>
                 </div>
               </div>
 
-              <Button
-                to="/training"
-                variant="primary"
-                size="md"
-                className="w-full sm:w-auto justify-center rounded-none shadow-sm text-xs sm:text-sm"
-                icon={<ArrowRight className="w-4 h-4 ml-1" />}
-                iconPosition="right"
+              {/* CTA Button */}
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 bg-[#0c192c] hover:bg-navy-900 text-white font-semibold px-5 py-3 rounded-none text-xs sm:text-sm transition-all shadow-2xs"
               >
-                Request a Proposal for IT Training
-              </Button>
-            </motion.div>
+                <span>Request a Proposal for IT Training</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
 
-            {/* Image (Sharp Edges) */}
-            <motion.div
-              variants={fadeUpVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.05 }}
-              className="lg:col-span-6 relative order-1 lg:order-2"
-            >
-              <div className="relative rounded-none overflow-hidden shadow-xl border border-slate-300 aspect-[4/3] bg-slate-100">
+            {/* Image (Right) */}
+            <div className="lg:col-span-6 relative order-1 lg:order-2">
+              <div className="relative rounded-none overflow-hidden shadow-md border border-slate-300 aspect-[4/3] bg-slate-100">
                 <img
                   src="/images/service-training.jpg"
                   alt="Corporate IT Training & Workforce Upskilling"
@@ -481,14 +457,14 @@ export const ServicesShowcase: React.FC = () => {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent pointer-events-none" />
-                <span className="absolute bottom-4 left-4 text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-1 rounded-none bg-navy-950/90 text-gold-300 border border-navy-800">
-                  PRACTICE 04 • WORKFORCE READINESS
+                <span className="absolute bottom-3 left-3 text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-1 rounded-none bg-[#0c192c]/95 text-white border border-white/10 shadow-sm">
+                  PRACTICE 04 // TALENT ELEVATION
                 </span>
               </div>
-            </motion.div>
+            </div>
           </div>
-        </Container>
-      </section>
+        </section>
+      </Container>
     </div>
   );
 };

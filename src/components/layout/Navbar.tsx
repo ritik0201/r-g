@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ArrowRight, PhoneCall, Calendar } from 'lucide-react';
+import { Menu, X, PhoneCall, Calendar } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { navigationLinks } from '@/data/navigation';
 import { siteConfig } from '@/data/site';
 import { useMobileMenu } from '@/hooks/useMobileMenu';
-import { Button } from '@/components/common/Button';
 import { BrandLogo } from '@/components/common/BrandLogo';
 import { cn } from '@/lib/utils';
 
@@ -89,18 +88,23 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Right Action Cluster */}
-          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
-            {/* CTA Button (Desktop) */}
-            <Button
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            {/* CTA Button (Desktop) - Gold "Book a consultation" matching Figma */}
+            <Link
               to="/contact"
-              variant="primary"
-              size="sm"
-              className="hidden sm:inline-flex shadow-sm rounded-none"
-              icon={<ArrowRight className="w-4 h-4 ml-1" />}
-              iconPosition="right"
+              className="hidden sm:inline-flex items-center justify-center font-bold text-xs sm:text-sm py-2 px-4 sm:px-5 bg-[#d8af3a] hover:bg-[#c59c25] text-navy-950 shadow-sm rounded-none transition-colors"
             >
-              Get in Touch
-            </Button>
+              Book a consultation
+            </Link>
+
+            {/* Profile Avatar Button (Desktop matching Figma) */}
+            <Link
+              to="/contact"
+              className="hidden sm:flex w-8 h-8 rounded-full bg-primary text-white items-center justify-center hover:bg-primary-light transition-colors shadow-2xs"
+              aria-label="Client portal"
+            >
+              <span className="text-[11px] font-mono font-bold">R&amp;G</span>
+            </Link>
 
             {/* Mobile Header Quick Dial Button */}
             <Link

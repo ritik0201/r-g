@@ -1,7 +1,7 @@
 import type { HeroData } from '@/types';
 
 export const heroData: HeroData = {
-  eyebrow: 'ENTERPRISE IT & TALENT CONSULTING • EST. 2023',
+  eyebrow: 'CONSULTING & ADVISORY • EST. 2023',
   headlinePart1: 'Technology.',
   headlinePart2: 'Talent.',
   headlineAccent: 'Growth.',
@@ -13,21 +13,21 @@ export const heroData: HeroData = {
     href: '/services',
   },
   secondaryCta: {
-    label: 'To Schedule',
+    label: 'Talk to Us',
     href: '/contact',
   },
   stats: [
     {
       value: '35+',
-      label: 'Strategic Engagements Delivered',
+      label: 'YEARS ADVISORY LEADERSHIP',
     },
     {
       value: 'MMR',
-      label: 'Primary Footprint (Mumbai, Thane, NM)',
+      label: 'THANE & MUMBAI CORE HUB',
     },
     {
       value: '100%',
-      label: 'Delivery Model Integrity',
+      label: 'END-TO-END GOVERNANCE',
     },
   ],
   image: '/images/hero-meeting.jpg',

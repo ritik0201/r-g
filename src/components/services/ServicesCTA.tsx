@@ -1,41 +1,42 @@
 import React from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Sparkles } from 'lucide-react';
 import { Container } from '@/components/common/Container';
-import { Button } from '@/components/common/Button';
 
 /**
  * Combined Advisory Package CTA Component for Services:
- * Dark Navy card with gold button.
+ * Dark Navy card with gold button matching exact Figma design.
  */
 export const ServicesCTA: React.FC = () => {
   return (
-    <section className="py-14 sm:py-20 bg-primary text-white border-t border-navy-950">
+    <section className="pb-16 sm:pb-20 bg-[#f4f7fb]">
       <Container>
-        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-          <div>
-            <div className="flex items-center justify-center sm:justify-start gap-1.5 text-accent text-xs font-mono font-bold tracking-widest uppercase mb-2">
+        <div className="bg-[#0c192c] text-white rounded-none p-8 sm:p-10 lg:p-12 border border-navy-900 shadow-md flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+          {/* Left: Heading and Description */}
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-2 text-[#caa264] text-xs font-mono font-bold tracking-widest uppercase mb-2.5">
               <Sparkles className="w-3.5 h-3.5" />
               <span>UNIFIED CLIENT ENGAGEMENT</span>
             </div>
-            <h2 className="font-heading font-bold text-2xl sm:text-3xl text-white mb-2">
+            <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight mb-3">
               Need a combined advisory package?
             </h2>
-            <p className="text-slate-300 text-xs sm:text-sm max-w-xl">
-              Contact our Thane office for unified roadmaps spanning technology cloud,
-              hands-on workforce placement, and custom software delivery under one
-              accountable governance partner.
+            <p className="text-slate-300 text-xs sm:text-sm lg:text-base leading-relaxed">
+              Contact our Thane office for a unified roadmap spanning technology, leadership
+              recruitment, and team skill reinforcement. We consolidate multiple vendor
+              streams into one accountable governance partner.
             </p>
           </div>
-          <Button
-            to="/contact"
-            variant="secondary"
-            size="md"
-            className="w-full sm:w-auto justify-center bg-[#d8af3a] hover:bg-[#c59c25] text-navy-950 font-bold border-none shadow-md rounded-none text-xs sm:text-sm shrink-0"
-            icon={<ArrowRight className="w-4 h-4 ml-1" />}
-            iconPosition="right"
-          >
-            Schedule Strategic Review
-          </Button>
+
+          {/* Right: Gold CTA Button */}
+          <div className="shrink-0">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center bg-[#e5be75] hover:bg-[#d8af3a] text-slate-950 font-bold px-7 py-3.5 rounded-none text-xs sm:text-sm shadow-md transition-all w-full sm:w-auto"
+            >
+              Schedule Strategic Review
+            </Link>
+          </div>
         </div>
       </Container>
     </section>

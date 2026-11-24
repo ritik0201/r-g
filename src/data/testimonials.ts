@@ -1,10 +1,10 @@
 import type { TestimonialItem } from '@/types';
 
 export const testimonialsHeading = {
-  eyebrow: 'TRACK RECORD OF EXCELLENCE',
+  eyebrow: 'INSTITUTIONAL VALIDATION',
   heading: 'Verified Client Perspectives',
   subtitle:
-    'Direct feedback from executives and promoters whose enterprises we have partnered with across Mumbai, Thane, and Navi Mumbai.',
+    'Direct accounts from executive directors and technology leadership across the Mumbai Metropolitan Region.',
 };
 
 export const testimonialsData: TestimonialItem[] = [
@@ -12,18 +12,18 @@ export const testimonialsData: TestimonialItem[] = [
     id: 'rajesh-verma',
     rating: 5,
     quote:
-      '“R&G fundamentally altered how we executed our core stack migration. Rather than handing us an abstract document, Mr. Sanjay Makhija personally audited our infrastructure and embedded senior Python and Magento engineering talent that delivered our phase 1 cutover in 8 weeks with zero downtime. Out-of-pocket tech costs dropped 28% in our first operating quarter.”',
-    author: 'Rajesh Verma',
-    role: 'Chief Operating Officer / Enterprise Logistics Group (Thane)',
+      '“R&G fundamentally altered how we executed our core ERP migration. Rather than handing us an ivory-tower document, Sanjay\'s team placed the exact technical leads we needed and held weekly governance reviews. Our downtime was reduced to zero during cutover.”',
+    author: 'Rajesh Varma',
+    role: 'Chief Operating Officer, Varma Logistics Group (Thane)',
     avatar: '/images/avatar-rajesh.jpg',
   },
   {
     id: 'ananya-deshmukh',
     rating: 5,
     quote:
-      "“Finding qualified full-stack architects with domain knowledge in manufacturing was stalling our factory automation project. Through R&G's partnership with Talent Corner and Mikado, the talent was qualified in 14 days and delivering value in under eight weeks.”",
+      '“Finding qualified full-stack architects with domain knowledge in manufacturing was stalling our factory automation project. Through their partnership with Talent Corner and Mikado, R&G built and upskilled a 14-person engineering wing in under eight weeks.”',
     author: 'Ananya Deshmukh',
-    role: 'VP Technology / Real Estate & Infrastructure Consortium (Navi Mumbai)',
+    role: 'VP Technology, Apex Industrial Technologies (Navi Mumbai)',
     avatar: '/images/avatar-ananya.jpg',
   },
 ];

@@ -4,49 +4,49 @@ export const practiceAreasHeading = {
   eyebrow: 'CORE CAPABILITIES',
   heading: 'Enterprise Practice Areas',
   subtitle:
-    'Four interconnected practice areas delivering rigorous end-to-end consulting for expanding business ventures and mid-market enterprises.',
+    'Four interconnected disciplines delivering systemic capability, resilient infrastructure, and qualified human capital.',
 };
 
 export const practiceAreasData: PracticeAreaItem[] = [
   {
     id: 'it-consultancy',
-    practiceNo: 'PRACTICE 01',
+    practiceNo: 'ADVISORY 01',
     title: 'IT Consultancy',
     description:
-      'End-to-end technology advisory, architecture design, cloud modernization, IT audit and actionable roadmap execution for growth.',
+      'Comprehensive technology roadmapping, enterprise cloud modernization, IT audit, and organizational cyber posture optimization.',
     iconName: 'Radio',
     linkText: 'Explore Practice',
-    linkHref: '#contact',
+    linkHref: '/services#it-consultancy',
   },
   {
     id: 'hr-staffing',
-    practiceNo: 'PRACTICE 02',
+    practiceNo: 'ADVISORY 02',
     title: 'HR & Staffing',
     description:
-      'Strategic talent acquisition and executive search powered by our exclusive master franchise partnership with Talent Corner HR Services.',
+      'Strategic human capital acquisition, senior executive recruitment, specialized tech talent pools, and talent lifecycle alignment.',
     iconName: 'Scale',
     linkText: 'Explore Practice',
-    linkHref: '#contact',
+    linkHref: '/services#hr-staffing',
   },
   {
     id: 'software-projects',
-    practiceNo: 'PRACTICE 03',
+    practiceNo: 'ADVISORY 03',
     title: 'Software Projects',
     description:
-      'Full lifecycle custom software development, modern cloud applications engineering, ERP, and e-commerce legacy modernization.',
+      'Full lifecycle custom software development, mission-critical application engineering, API architectures, and legacy migrations.',
     iconName: 'Laptop',
     linkText: 'Explore Practice',
-    linkHref: '#contact',
+    linkHref: '/services#software-projects',
   },
   {
     id: 'corporate-it-training',
-    practiceNo: 'PRACTICE 04',
+    practiceNo: 'ADVISORY 04',
     title: 'Corporate IT Training',
     description:
-      'Customized enterprise upskilling programs in modern frameworks (Python, Java, Fullstack) delivered in institutional partnership with Mikado Solutions.',
+      'Customized technical upskilling curriculums, enterprise DevSecOps workshops, executive digital literacy, and team certifications.',
     iconName: 'GraduationCap',
     linkText: 'Explore Practice',
-    linkHref: '#contact',
+    linkHref: '/services#corporate-training',
   },
 ];
 

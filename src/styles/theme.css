@@ -58,7 +58,8 @@
   /* Typography */
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body:
-    'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   /* Type Scale */
   --text-display: 3.5rem;

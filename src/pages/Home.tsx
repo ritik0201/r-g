@@ -3,8 +3,7 @@ import {
   HomeHero,
   HomePillars,
   HomeProprietor,
-  HomeAdvantage,
-  HomeWorkflow,
+  HomeAdvantageWorkflow,
   HomePartners,
   HomeTestimonials,
   HomeCTA,
@@ -27,19 +26,16 @@ export const Home: React.FC = () => {
       {/* 3. Leadership Quote */}
       <HomeProprietor />
 
-      {/* 4. The R&G Advantage */}
-      <HomeAdvantage />
+      {/* 4. The R&G Advantage & How We Work (Side-by-side on desktop, stacked on mobile) */}
+      <HomeAdvantageWorkflow />
 
-      {/* 5. How We Work */}
-      <HomeWorkflow />
-
-      {/* 6. Strategic Delivery Partners */}
+      {/* 5. Strategic Delivery Partners */}
       <HomePartners />
 
-      {/* 7. Verified Client Perspectives */}
+      {/* 6. Verified Client Perspectives */}
       <HomeTestimonials />
 
-      {/* 8. Ready to Accelerate Your Enterprise Growth */}
+      {/* 7. Ready to Accelerate Your Enterprise Growth */}
       <HomeCTA />
     </div>
   );

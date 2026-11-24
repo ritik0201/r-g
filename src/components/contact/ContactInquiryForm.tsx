@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { CheckCircle2, Lock, ChevronDown, Send } from 'lucide-react';
+import { CheckCircle2, Lock, ChevronDown, Play } from 'lucide-react';
 
 /**
  * Advisory Inquiry Form Component for Contact page:
  * Direct routing form with corporate confidentiality NDA box,
- * live validation, and instant dispatch indicator.
+ * live validation, and instant dispatch indicator matching exact Figma design.
  */
 export const ContactInquiryForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -38,12 +38,12 @@ export const ContactInquiryForm: React.FC = () => {
   };
 
   return (
-    <div className="bg-white rounded-none border border-slate-200/90 shadow-2xs p-5 sm:p-8 md:p-10">
+    <div className="bg-white rounded-none border border-slate-200/90 shadow-2xs p-6 sm:p-8 md:p-10">
       <div className="flex items-center justify-between gap-3 mb-2">
-        <h2 className="font-heading font-bold text-xl sm:text-2xl md:text-3xl text-primary">
+        <h2 className="font-heading font-bold text-xl sm:text-2xl md:text-3xl text-slate-900">
           Send an Advisory Inquiry
         </h2>
-        <span className="bg-primary text-white text-[10px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 rounded-none shadow-2xs shrink-0">
+        <span className="bg-[#0c192c] text-white text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-1 rounded-none shadow-2xs shrink-0">
           DIRECT ROUTING
         </span>
       </div>
@@ -52,7 +52,7 @@ export const ContactInquiryForm: React.FC = () => {
         Lodha iThink executive desk.
       </p>
 
-      <div className="w-full h-px bg-slate-100 mb-5" />
+      <div className="w-full h-px bg-slate-100 mb-6" />
 
       {isSubmitted ? (
         <div className="p-6 sm:p-8 rounded-none bg-emerald-50 border border-emerald-200 text-center space-y-3">
@@ -94,7 +94,7 @@ export const ContactInquiryForm: React.FC = () => {
                 htmlFor="fullName"
                 className="block text-xs font-semibold text-slate-700 mb-1"
               >
-                Full Name <span className="text-amber-600">*</span>
+                Full Name <span className="text-[#caa264]">*</span>
               </label>
               <input
                 id="fullName"
@@ -134,7 +134,7 @@ export const ContactInquiryForm: React.FC = () => {
                 htmlFor="email"
                 className="block text-xs font-semibold text-slate-700 mb-1"
               >
-                Official Email Address <span className="text-amber-600">*</span>
+                Official Email Address <span className="text-[#caa264]">*</span>
               </label>
               <input
                 id="email"
@@ -156,7 +156,7 @@ export const ContactInquiryForm: React.FC = () => {
                 Phone Number
               </label>
               <div className="flex rounded-none border border-slate-200 overflow-hidden focus-within:border-primary transition-colors bg-white">
-                <span className="inline-flex items-center px-2.5 text-xs font-semibold text-slate-600 bg-slate-100 border-r border-slate-200 select-none">
+                <span className="inline-flex items-center px-3 text-xs font-semibold text-slate-600 bg-slate-100 border-r border-slate-200 select-none">
                   +91
                 </span>
                 <input
@@ -191,8 +191,8 @@ export const ContactInquiryForm: React.FC = () => {
                 <option value="IT Consultancy & Architecture Roadmap">
                   IT Consultancy &amp; Architecture Roadmap
                 </option>
-                <option value="Executive HR, Talent & Staffing Mandate">
-                  Executive HR, Talent &amp; Staffing Mandate
+                <option value="Executive HR & Technical Staffing Mandates">
+                  Executive HR &amp; Technical Staffing Mandates
                 </option>
                 <option value="Software Projects & E-Commerce Engineering">
                   Software Projects &amp; E-Commerce Engineering
@@ -214,7 +214,7 @@ export const ContactInquiryForm: React.FC = () => {
               htmlFor="message"
               className="block text-xs font-semibold text-slate-700 mb-1"
             >
-              Detailed Message / Project Scope <span className="text-amber-600">*</span>
+              Detailed Message / Project Scope <span className="text-[#caa264]">*</span>
             </label>
             <textarea
               id="message"
@@ -229,8 +229,8 @@ export const ContactInquiryForm: React.FC = () => {
           </div>
 
           {/* Row 5: Corporate Confidentiality Box */}
-          <div className="bg-[#f0f6fc] border border-blue-100 rounded-none p-3 sm:p-4 flex items-start gap-3">
-            <div className="w-6 h-6 rounded-none bg-blue-100/70 text-accent flex items-center justify-center shrink-0 mt-0.5">
+          <div className="bg-[#f0f6fc] border border-blue-100 rounded-none p-3.5 sm:p-4 flex items-start gap-3">
+            <div className="w-6 h-6 rounded-none bg-blue-100/70 text-[#caa264] flex items-center justify-center shrink-0 mt-0.5">
               <Lock className="w-3.5 h-3.5" />
             </div>
             <p className="text-xs text-slate-600 leading-relaxed">
@@ -242,20 +242,20 @@ export const ContactInquiryForm: React.FC = () => {
             </p>
           </div>
 
-          {/* Row 6: Dispatch Action Strip */}
+          {/* Row 6: Dispatch Action Strip matching Figma */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3.5 pt-3 border-t border-slate-100">
             <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-mono font-bold tracking-wider text-slate-500 uppercase">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-slate-700" />
               <span>READY FOR DISPATCH</span>
             </div>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-none bg-gradient-to-r from-[#d8af3a] to-[#c59c25] hover:from-[#c59c25] hover:to-[#b38918] text-navy-950 font-heading font-bold text-xs sm:text-sm shadow-2xs transition-all disabled:opacity-70 cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-none bg-[#d8af3a] hover:bg-[#c59c25] text-slate-950 font-heading font-bold text-xs sm:text-sm shadow-2xs transition-all disabled:opacity-70 cursor-pointer"
             >
               <span>{isSubmitting ? 'Routing...' : 'Send Inquiry'}</span>
-              <Send className="w-3.5 h-3.5" />
+              <Play className="w-2.5 h-2.5 fill-slate-950 text-slate-950" />
             </button>
           </div>
         </form>

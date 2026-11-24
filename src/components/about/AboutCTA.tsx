@@ -1,48 +1,56 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Calendar, ArrowRight, Layers } from 'lucide-react';
 import { Container } from '@/components/common/Container';
-import { Button } from '@/components/common/Button';
 
 /**
  * About CTA Component:
- * Engage R&G Advisory consultation prompt.
+ * Engage R&G Advisory consultation prompt matching exact Figma design:
+ * - "❖ EXECUTIVE CONSULTATION" gold eyebrow
+ * - "Engage R&G Advisory" heading
+ * - Exact narrative copy
+ * - "Schedule with Sanjay Makhija 📅" gold button
+ * - "Review Practice Areas →" deep navy button
  */
 export const AboutCTA: React.FC = () => {
   return (
-    <section className="py-14 sm:py-20 bg-primary text-white border-t border-navy-950">
+    <section className="py-14 sm:py-20 bg-[#0e1e38] text-white border-t border-navy-950 relative overflow-hidden">
       <Container>
-        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-          <div>
-            <span className="text-xs font-mono font-bold text-accent uppercase tracking-widest block mb-2">
-              CONSULTING ENGAGEMENT
-            </span>
-            <h2 className="font-heading font-bold text-2xl sm:text-3xl text-white mb-2">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+          {/* Left: Heading and Narrative */}
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-2 mb-2.5">
+              <Layers className="w-3.5 h-3.5 text-[#caa264]" />
+              <span className="text-xs font-mono font-bold text-[#caa264] uppercase tracking-widest">
+                EXECUTIVE CONSULTATION
+              </span>
+            </div>
+            <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight mb-3">
               Engage R&amp;G Advisory
             </h2>
-            <p className="text-slate-300 text-xs sm:text-sm max-w-xl">
-              Schedule an introductory diagnostic directly with Mr. Sanjay Makhija to
-              explore how we can architect, staff, and scale your technology operations.
+            <p className="text-slate-300 text-xs sm:text-sm lg:text-base leading-relaxed">
+              Schedule an introduction directly with Mr. Sanjay Makhija to examine your enterprise
+              roadmap, vendor posture, or tech leadership requisitions.
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full sm:w-auto">
-            <Button
+
+          {/* Right: Dual Action Buttons */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 shrink-0">
+            <Link
               to="/contact"
-              variant="secondary"
-              size="md"
-              className="w-full sm:w-auto justify-center bg-[#d8af3a] hover:bg-[#c59c25] text-navy-950 font-bold border-none shadow-md rounded-none text-xs sm:text-sm"
-              icon={<ArrowRight className="w-4 h-4 ml-1" />}
-              iconPosition="right"
+              className="inline-flex items-center justify-center gap-2 bg-[#d8af3a] hover:bg-[#c59c25] text-navy-950 font-bold px-6 py-3.5 rounded-none text-xs sm:text-sm transition-all shadow-md active:scale-[0.99]"
             >
-              Contact Advisory Desk
-            </Button>
-            <Button
+              <span>Schedule with Sanjay Makhija</span>
+              <Calendar className="w-4 h-4 ml-0.5" />
+            </Link>
+
+            <Link
               to="/services"
-              variant="ghost"
-              size="md"
-              className="w-full sm:w-auto justify-center text-white hover:text-accent hover:bg-white/10 rounded-none border border-white/20 text-xs sm:text-sm"
+              className="inline-flex items-center justify-center gap-2 bg-[#0a1526] hover:bg-[#11233f] text-white border border-slate-700 hover:border-slate-500 font-semibold px-6 py-3.5 rounded-none text-xs sm:text-sm transition-all"
             >
-              Explore Practice Areas
-            </Button>
+              <span>Review Practice Areas</span>
+              <ArrowRight className="w-4 h-4 ml-0.5 text-slate-300" />
+            </Link>
           </div>
         </div>
       </Container>

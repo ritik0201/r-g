@@ -1,105 +1,121 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Radio, Scale, Laptop, GraduationCap } from 'lucide-react';
-import { practiceAreasData, practiceAreasHeading } from '@/data/pillars';
+import { ArrowRight, Building2, Users, Terminal, Radio } from 'lucide-react';
 import { Container } from '@/components/common/Container';
-import { Card } from '@/components/common/Card';
-import { staggerContainerVariant, fadeUpVariant } from '@/lib/motion';
 
-const iconMap: Record<string, React.ElementType> = {
-  Radio,
-  Scale,
-  Laptop,
-  GraduationCap,
-};
+const practiceList = [
+  {
+    icon: Building2,
+    badge: 'ADVISORY',
+    title: 'IT Consultancy',
+    description:
+      'Strategic technology roadmaps, enterprise architecture modernization, and governance–first cloud integrations tied to verifiable ROI.',
+    linkText: 'Explore IT Advisory',
+    href: '/services#it-consultancy',
+  },
+  {
+    icon: Users,
+    badge: 'HUMAN CAPITAL',
+    title: 'HR & Staffing',
+    description:
+      'Executive search, high-volume lateral engineering placements, and flexible contract staffing engineered with rigorous domain assessment.',
+    linkText: 'Explore HR Solutions',
+    href: '/services#hr-staffing',
+  },
+  {
+    icon: Terminal,
+    badge: 'ENGINEERING',
+    title: 'Software Projects',
+    description:
+      'Magento enterprise commerce systems, bespoke API gateway architectures, high-performance database migrations, and performance tuning.',
+    linkText: 'Explore Engineering',
+    href: '/services#software-projects',
+  },
+  {
+    icon: Radio,
+    badge: 'WORKFORCE',
+    title: 'IT Training',
+    description:
+      'Curated corporate workforce development across modern Java, Python enterprise pipelines, cloud-native DevOps, and fullstack ecosystems.',
+    linkText: 'Explore Training Modules',
+    href: '/services#corporate-training',
+  },
+];
 
 /**
  * Enterprise Practice Areas Section:
- * 4 interconnected practice cards with icon, practice chip, description, and link.
+ * Matches exact mobile and desktop Figma design with clean white cards,
+ * light blue icon boxes, domain badges, and explore links.
  */
 export const HomePillars: React.FC = () => {
   return (
     <section
       id="services"
-      className="py-16 sm:py-20 lg:py-28 bg-[#f8fafc]/70 relative border-t border-slate-200/60"
+      className="py-12 sm:py-16 lg:py-20 bg-[#fafcfd] relative border-t border-slate-200/80"
     >
       <Container>
-        {/* Section Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-10 items-end mb-10 sm:mb-16">
-          <div className="lg:col-span-6">
-            <span className="eyebrow text-xs font-bold text-accent tracking-widest uppercase font-mono mb-2 block">
-              {practiceAreasHeading.eyebrow}
+        {/* Section Header matching mobile screenshot */}
+        <div className="mb-6 sm:mb-10 max-w-2xl">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="w-5 h-0.5 bg-[#caa264]" />
+            <span className="text-xs font-mono font-bold text-[#caa264] uppercase tracking-widest">
+              PRACTICE DOMAINS
             </span>
-            <h2 className="heading-section text-primary text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
-              {practiceAreasHeading.heading}
-            </h2>
           </div>
-          <div className="lg:col-span-6">
-            <p className="text-slate-600 text-xs sm:text-sm lg:text-base leading-relaxed">
-              {practiceAreasHeading.subtitle}
-            </p>
-          </div>
+          <h2 className="font-heading text-primary text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-2">
+            Core Practice Areas
+          </h2>
+          <p className="text-slate-600 text-xs sm:text-sm lg:text-base leading-relaxed">
+            Holistic advisory solutions tailored for mid-market and institutional enterprises.
+          </p>
         </div>
 
         {/* 4 Practice Cards Grid */}
-        <motion.div
-          variants={staggerContainerVariant}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6"
-        >
-          {practiceAreasData.map((practice) => {
-            const Icon = iconMap[practice.iconName] || Radio;
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {practiceList.map((practice) => {
+            const Icon = practice.icon;
 
             return (
-              <motion.div key={practice.id} variants={fadeUpVariant} className="h-full">
-                <Card
-                  variant="hover"
-                  className="p-5 sm:p-7 flex flex-col justify-between h-full bg-gradient-to-b from-[#f2f7fc] via-white to-white border border-slate-200/90 shadow-2xs hover:shadow-md group transition-all duration-300 rounded-none"
-                >
-                  <div>
-                    {/* Header: Icon on left, Practice Chip on right */}
-                    <div className="flex items-center justify-between mb-5">
-                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-none bg-amber-50/90 border border-amber-200/60 text-accent flex items-center justify-center shadow-2xs transition-transform group-hover:scale-105">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <span className="text-[10px] font-mono font-bold tracking-wider text-slate-500 uppercase px-2 py-0.5 bg-slate-100 border border-slate-200/70">
-                        {practice.practiceNo}
-                      </span>
+              <div
+                key={practice.title}
+                className="p-5 sm:p-6 bg-white border border-slate-200/90 shadow-2xs hover:shadow-xs rounded-none flex flex-col justify-between transition-all"
+              >
+                <div>
+                  {/* Top Row: Icon on left, Domain Tag on right */}
+                  <div className="flex items-center justify-between gap-2 mb-4">
+                    <div className="w-9 h-9 rounded-none bg-sky-50 border border-sky-100 text-sky-800 flex items-center justify-center shadow-2xs">
+                      <Icon className="w-4 h-4" />
                     </div>
-
-                    {/* Title */}
-                    <h3 className="font-heading font-bold text-lg sm:text-xl text-primary mb-2.5 leading-tight group-hover:text-primary-light transition-colors">
-                      {practice.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
-                      {practice.description}
-                    </p>
+                    <span className="text-[10px] font-mono font-bold text-sky-800 bg-sky-50 border border-sky-200/60 px-2 py-0.5 rounded-none uppercase tracking-wider">
+                      {practice.badge}
+                    </span>
                   </div>
 
-                  {/* Explore Link with Arrow */}
-                  <div className="pt-4 border-t border-slate-100">
-                    <Link
-                      to="/services"
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary group-hover:text-accent transition-colors"
-                    >
-                      <span>{practice.linkText}</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
-                </Card>
-              </motion.div>
+                  <h3 className="font-heading font-bold text-base sm:text-lg text-primary mb-2 leading-tight">
+                    {practice.title}
+                  </h3>
+
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5">
+                    {practice.description}
+                  </p>
+                </div>
+
+                <div className="pt-3 border-t border-slate-100">
+                  <Link
+                    to={practice.href}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-[#caa264] transition-colors"
+                  >
+                    <span>{practice.linkText}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
       </Container>
     </section>
   );
 };
 
 export default HomePillars;
-
